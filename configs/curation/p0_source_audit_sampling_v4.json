@@ -1,0 +1,26 @@
+{
+  "version": 4,
+  "review_purpose": "source_quality_audit",
+  "calibration_per_stratum": 16,
+  "rolling_per_stratum": 4,
+  "seed": 20261002,
+  "maximum_sample_body_bytes": 100000,
+  "max_sample_documents": 128,
+  "length_bins_own_tokens": [
+    512,
+    4096
+  ],
+  "scope": "provisional_train_candidates_only",
+  "source_policy_buckets": {
+    "github_code_clean_supply_v4": [
+      "record_license_whitelisted"
+    ],
+    "finemath_4plus_supply_v4": [
+      "source_terms_hold"
+    ]
+  },
+  "source_terms_hold_is_not_approval": true,
+  "auto_source_approval": false,
+  "auto_training": false,
+  "auto_start_reviews": false
+}

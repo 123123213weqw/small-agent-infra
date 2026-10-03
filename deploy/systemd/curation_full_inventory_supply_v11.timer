@@ -1,0 +1,9 @@
+[Unit]
+Description=Continue all V100 stock source QA and token publication without duplicate workers
+[Timer]
+OnBootSec=5min
+OnUnitInactiveSec=2min
+Persistent=true
+Unit=curation_full_inventory_supply_v11.service
+[Install]
+WantedBy=timers.target

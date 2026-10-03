@@ -1,0 +1,14 @@
+[Unit]
+Description=Release eight Qwen vLLM replicas after non-Wikipedia review finishes
+After=default.target
+
+[Service]
+Type=oneshot
+Environment=DATA=/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/nonwiki_new_quality_probe_v1/auto_review_full_v1
+ExecStart=/bin/bash /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/nonwiki_new_quality_probe_v1/auto_review_full_v1/code/scripts/p0_release_qwen8_when_finished.sh
+TimeoutStartSec=0
+Restart=on-failure
+RestartSec=30
+
+[Install]
+WantedBy=default.target

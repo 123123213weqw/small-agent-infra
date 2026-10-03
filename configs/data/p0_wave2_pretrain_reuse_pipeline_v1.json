@@ -1,0 +1,282 @@
+{
+  "version": 1,
+  "description": "CPU-only Wave2 reuse for internal pretraining experiments; no paid calls or training launch",
+  "stages": [
+    {
+      "name": "reuse_freeze",
+      "kind": "command",
+      "host": "local",
+      "command": "/home/user/anaconda3/bin/python /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pretrain_reuse_wave2_v1/code/scripts/p0_reuse_wave2_pretrain_v1.py freeze --wave-root /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/fineweb_edu_wave2_v1 --policy /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pretrain_reuse_wave2_v1/code/configs/curation/p0_wave2_pretrain_reuse_v1.json --tokenizer /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/tokenizer_v1 --output /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pretrain_reuse_wave2_v1/frozen_source --prior /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pretrain_ready_v1/inputs/prior_approved_real_v2 --prior /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_short_internal_v2",
+      "inputs": [
+        {
+          "host": "local",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pretrain_reuse_wave2_v1/code/configs/curation/p0_wave2_pretrain_reuse_v1.json"
+        },
+        {
+          "host": "local",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pretrain_reuse_wave2_v1/code/scripts/p0_data_pipeline.py"
+        },
+        {
+          "host": "local",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pretrain_reuse_wave2_v1/code/scripts/p0_pipeline.py"
+        },
+        {
+          "host": "local",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pretrain_reuse_wave2_v1/code/scripts/p0_reuse_wave2_pretrain_v1.py"
+        },
+        {
+          "host": "local",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pretrain_reuse_wave2_v1/code/src/small_agent/__init__.py"
+        },
+        {
+          "host": "local",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pretrain_reuse_wave2_v1/code/src/small_agent/data/__init__.py"
+        },
+        {
+          "host": "local",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pretrain_reuse_wave2_v1/code/src/small_agent/data/indexed_dataset.py"
+        },
+        {
+          "host": "local",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pretrain_reuse_wave2_v1/code/src/small_agent/data/mixture_sampler.py"
+        },
+        {
+          "host": "local",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pretrain_reuse_wave2_v1/code/src/small_agent/data/sampler.py"
+        },
+        {
+          "host": "local",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pretrain_reuse_wave2_v1/code/src/small_agent/data/sharded_dataset.py"
+        },
+        {
+          "host": "local",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pretrain_reuse_wave2_v1/code/src/small_agent/data/sharded_format.py"
+        },
+        {
+          "host": "local",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pretrain_reuse_wave2_v1/code/src/small_agent/data/sharded_pack.py"
+        },
+        {
+          "host": "local",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/tokenizer_v1/manifest.json"
+        },
+        {
+          "host": "local",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/tokenizer_v1/tokenizer.json"
+        },
+        {
+          "host": "local",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/fineweb_edu_wave2_v1/manifest.json"
+        },
+        {
+          "host": "local",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/fineweb_edu_wave2_v1/audit/acceptance_v1/SUMMARY.json"
+        },
+        {
+          "host": "local",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/fineweb_edu_wave2_v1/audit/acceptance_v1/reports/RECONCILIATION.json"
+        },
+        {
+          "host": "local",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/fineweb_edu_wave2_v1/audit/near_dedup_v1/verified_v1/SUMMARY.json"
+        },
+        {
+          "host": "local",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/fineweb_edu_wave2_v1/audit/eval_screen_v1/SUMMARY.json"
+        },
+        {
+          "host": "local",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pretrain_ready_v1/audit/PRIOR_SOURCE_CHECK.json"
+        },
+        {
+          "host": "local",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pretrain_ready_v1/inputs/prior_approved_real_v2/manifest.json"
+        },
+        {
+          "host": "local",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_short_internal_v2/manifest.json"
+        }
+      ],
+      "outputs": [
+        {
+          "host": "local",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pretrain_reuse_wave2_v1/frozen_source/manifest.json"
+        }
+      ],
+      "checks": [
+        {
+          "host": "local",
+          "command": "/home/user/anaconda3/bin/python /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pretrain_reuse_wave2_v1/code/scripts/p0_reuse_wave2_pretrain_v1.py check-source --source /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pretrain_reuse_wave2_v1/frozen_source"
+        }
+      ]
+    },
+    {
+      "name": "reuse_pack",
+      "kind": "command",
+      "host": "local",
+      "command": "/home/user/anaconda3/bin/python /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pretrain_reuse_wave2_v1/code/scripts/p0_reuse_wave2_pretrain_v1.py pack --source /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pretrain_reuse_wave2_v1/frozen_source --tokenizer /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/tokenizer_v1 --output /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pretrain_reuse_wave2_v1/token_pack",
+      "inputs": [
+        {
+          "host": "local",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pretrain_reuse_wave2_v1/code/configs/curation/p0_wave2_pretrain_reuse_v1.json"
+        },
+        {
+          "host": "local",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pretrain_reuse_wave2_v1/code/scripts/p0_data_pipeline.py"
+        },
+        {
+          "host": "local",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pretrain_reuse_wave2_v1/code/scripts/p0_pipeline.py"
+        },
+        {
+          "host": "local",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pretrain_reuse_wave2_v1/code/scripts/p0_reuse_wave2_pretrain_v1.py"
+        },
+        {
+          "host": "local",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pretrain_reuse_wave2_v1/code/src/small_agent/__init__.py"
+        },
+        {
+          "host": "local",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pretrain_reuse_wave2_v1/code/src/small_agent/data/__init__.py"
+        },
+        {
+          "host": "local",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pretrain_reuse_wave2_v1/code/src/small_agent/data/indexed_dataset.py"
+        },
+        {
+          "host": "local",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pretrain_reuse_wave2_v1/code/src/small_agent/data/mixture_sampler.py"
+        },
+        {
+          "host": "local",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pretrain_reuse_wave2_v1/code/src/small_agent/data/sampler.py"
+        },
+        {
+          "host": "local",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pretrain_reuse_wave2_v1/code/src/small_agent/data/sharded_dataset.py"
+        },
+        {
+          "host": "local",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pretrain_reuse_wave2_v1/code/src/small_agent/data/sharded_format.py"
+        },
+        {
+          "host": "local",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pretrain_reuse_wave2_v1/code/src/small_agent/data/sharded_pack.py"
+        },
+        {
+          "host": "local",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/tokenizer_v1/manifest.json"
+        },
+        {
+          "host": "local",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/tokenizer_v1/tokenizer.json"
+        },
+        {
+          "host": "local",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pretrain_reuse_wave2_v1/frozen_source/manifest.json"
+        }
+      ],
+      "outputs": [
+        {
+          "host": "local",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pretrain_reuse_wave2_v1/token_pack/manifest.json"
+        }
+      ],
+      "checks": [
+        {
+          "host": "local",
+          "command": "/home/user/anaconda3/bin/python /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pretrain_reuse_wave2_v1/code/scripts/p0_reuse_wave2_pretrain_v1.py check-pack --pack /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pretrain_reuse_wave2_v1/token_pack"
+        }
+      ]
+    },
+    {
+      "name": "reuse_verify",
+      "kind": "command",
+      "host": "local",
+      "command": "/home/user/anaconda3/bin/python /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pretrain_reuse_wave2_v1/code/scripts/p0_reuse_wave2_pretrain_v1.py verify --source /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pretrain_reuse_wave2_v1/frozen_source --pack /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pretrain_reuse_wave2_v1/token_pack --output /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pretrain_reuse_wave2_v1/reports/READY.json",
+      "inputs": [
+        {
+          "host": "local",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pretrain_reuse_wave2_v1/code/configs/curation/p0_wave2_pretrain_reuse_v1.json"
+        },
+        {
+          "host": "local",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pretrain_reuse_wave2_v1/code/scripts/p0_data_pipeline.py"
+        },
+        {
+          "host": "local",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pretrain_reuse_wave2_v1/code/scripts/p0_pipeline.py"
+        },
+        {
+          "host": "local",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pretrain_reuse_wave2_v1/code/scripts/p0_reuse_wave2_pretrain_v1.py"
+        },
+        {
+          "host": "local",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pretrain_reuse_wave2_v1/code/src/small_agent/__init__.py"
+        },
+        {
+          "host": "local",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pretrain_reuse_wave2_v1/code/src/small_agent/data/__init__.py"
+        },
+        {
+          "host": "local",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pretrain_reuse_wave2_v1/code/src/small_agent/data/indexed_dataset.py"
+        },
+        {
+          "host": "local",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pretrain_reuse_wave2_v1/code/src/small_agent/data/mixture_sampler.py"
+        },
+        {
+          "host": "local",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pretrain_reuse_wave2_v1/code/src/small_agent/data/sampler.py"
+        },
+        {
+          "host": "local",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pretrain_reuse_wave2_v1/code/src/small_agent/data/sharded_dataset.py"
+        },
+        {
+          "host": "local",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pretrain_reuse_wave2_v1/code/src/small_agent/data/sharded_format.py"
+        },
+        {
+          "host": "local",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pretrain_reuse_wave2_v1/code/src/small_agent/data/sharded_pack.py"
+        },
+        {
+          "host": "local",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/tokenizer_v1/manifest.json"
+        },
+        {
+          "host": "local",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/tokenizer_v1/tokenizer.json"
+        },
+        {
+          "host": "local",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pretrain_reuse_wave2_v1/frozen_source/manifest.json"
+        },
+        {
+          "host": "local",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pretrain_reuse_wave2_v1/token_pack/manifest.json"
+        }
+      ],
+      "outputs": [
+        {
+          "host": "local",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pretrain_reuse_wave2_v1/reports/READY.json"
+        }
+      ],
+      "checks": [
+        {
+          "host": "local",
+          "command": "/home/user/anaconda3/bin/python /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pretrain_reuse_wave2_v1/code/scripts/p0_reuse_wave2_pretrain_v1.py check-source --source /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pretrain_reuse_wave2_v1/frozen_source"
+        },
+        {
+          "host": "local",
+          "command": "/home/user/anaconda3/bin/python /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pretrain_reuse_wave2_v1/code/scripts/p0_reuse_wave2_pretrain_v1.py check-pack --pack /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pretrain_reuse_wave2_v1/token_pack"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "version": 4,
+  "source_id": "github_code_clean_supply_v4",
+  "target_body_tokens": {"train": 10000000, "validation": 100000, "test": 100000},
+  "proposal_multiplier": 1.25,
+  "seed": 20261002,
+  "maximum_body_bytes": 100000,
+  "maximum_document_tokens": 20000,
+  "near_threshold": 0.9,
+  "near_sketch_size": 64,
+  "near_min_shared_sketch": 4,
+  "maximum_near_candidates": 2000,
+  "sequence_length": 4096,
+  "target_shard_tokens": 8000000,
+  "source_quality_approval": false,
+  "global_near_approval": false,
+  "eval_contamination_approval": false,
+  "allow_api": false,
+  "auto_training": false,
+  "auto_publish": false,
+  "purpose": "bounded_real_data_production_pilot_with_explicit_release_holds"
+}

@@ -1,0 +1,21 @@
+{
+  "version": 21,
+  "release_cpu_workers": 16,
+  "pre_billing_cpu_workers": 16,
+  "initial_teacher_concurrency": 256,
+  "fallback_every_ticks": 4,
+  "quality_thresholds_changed": false,
+  "skip_hashes": false,
+  "parallel_ledger_writers": false,
+  "maximum_prefetch_chunks_per_worker": 2,
+  "scheduling": "fair_source_audit_pass_all_complete_cohorts_before_bounded_individual_fallback",
+  "index_writer": "unchanged_v6_v13_builder_with_exact_reused_near_sketch_cache",
+  "reuse_exact_near_sketches": true,
+  "fast_batch_size_multiplier": 4,
+  "rolling_audit_density": "32_per_stratum_for_new_4x_fast_batches_historical_paid_plans_unchanged",
+  "goal_ready_train_tokens_per_hour": 200000000,
+  "goal_minimum_contiguous_seconds": 3600,
+  "near_engine": "v13_unchanged_decisions_plus_exact_sketch_reuse",
+  "experimental_arrow_cache_and_anchor_enabled": false,
+  "experimental_batched_wal_writer_enabled": false
+}

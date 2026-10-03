@@ -1,0 +1,26 @@
+{
+  "version": 4,
+  "stage": "existing_shard_replenishment_calibration_not_ready_release",
+  "legacy_inventory_receipt": "/srv/small-agent/datasets/small-agent-p0/curation_v4/legacy_inventory_20261002_v1/receipt.json",
+  "control_database": "/srv/small-agent/datasets/small-agent-p0/curation_v4/state/supply_20b_v4.sqlite",
+  "priority_domains": ["code", "math", "technical", "general_zh"],
+  "general_en_download_mode": "defer_this_round_then_replenish_by_verified_deficit",
+  "existing_files_first": true,
+  "whole_repository_download": false,
+  "calibration_seed": "supply-v4-20261002",
+  "max_sample_documents_per_source": 2048,
+  "max_sample_body_tokens_per_source": 5000000,
+  "candidate_split": "unassigned_until_global_family_and_eval_checks",
+  "source_policies": {
+    "finemath_4plus_new": "existing_high_score_math_subset_calibration_pending",
+    "github_code_clean_new": "per_row_license_whitelist_then_source_quality_calibration",
+    "ultradata_code_l2_py": "hold_until_repository_license_evidence",
+    "ultrafineweb_zh": "hold_until_original_family_or_validated_split_strategy",
+    "mdn_en_full_direct_v1": "reuse_existing_probe_as_evidence_not_automatic_full_source_approval"
+  },
+  "next_alternative_zh": "fineweb2_hq_zh_existing_shards_with_original_urls",
+  "new_api_budget_cny": 0,
+  "gpu_tasks_enabled": false,
+  "auto_training": false,
+  "auto_publish": false
+}

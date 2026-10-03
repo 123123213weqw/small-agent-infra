@@ -1,0 +1,18 @@
+{
+  "version": "generation_smoke_v1",
+  "purpose": "final_wave2_base_natural_prefix_generation_probe_not_a_benchmark",
+  "decoding": {
+    "strategy": "greedy",
+    "max_new_tokens": 96
+  },
+  "prompts": [
+    {"id": "zh_explanation", "domain": "general_zh", "text": "机器学习是"},
+    {"id": "zh_encyclopedia", "domain": "general_zh", "text": "地球是太阳系中"},
+    {"id": "en_explanation", "domain": "general_en", "text": "Machine learning is"},
+    {"id": "en_science", "domain": "general_en", "text": "Photosynthesis is the process by which"},
+    {"id": "python_function", "domain": "code_python", "text": "def add(a, b):\n    return"},
+    {"id": "python_square", "domain": "code_python", "text": "def square(x):\n    return"},
+    {"id": "basic_math", "domain": "math_zh", "text": "计算 2 + 3，结果是"},
+    {"id": "arithmetic_plain", "domain": "math_en", "text": "2 + 3 ="}
+  ]
+}

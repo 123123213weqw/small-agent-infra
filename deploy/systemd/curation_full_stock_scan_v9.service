@@ -1,0 +1,17 @@
+[Unit]
+Description=All registered pretraining inventory CPU rule triage v9, never training
+
+[Service]
+Type=oneshot
+WorkingDirectory=/srv/small-agent/datasets/small-agent-p0/curation_v4/code
+ExecStart=/srv/small-agent/venvs/deepspec_gemma4/bin/python -u scripts/p0_full_stock_scan_v9.py --original /srv/small-agent/datasets/small-agent-p0/curation_v4/stock_117b_v6 --output /srv/small-agent/datasets/small-agent-p0/curation_v4/full_stock_v9 --config configs/curation/p0_full_stock_filter_v9.json
+Environment=CUDA_VISIBLE_DEVICES=
+Environment=OMP_NUM_THREADS=1
+CPUQuota=400%
+MemoryMax=12G
+Nice=15
+TimeoutStartSec=0
+RemainAfterExit=yes
+
+[Install]
+WantedBy=default.target

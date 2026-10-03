@@ -1,0 +1,65 @@
+{
+  "all_inventory_completed": false,
+  "api_maximum_concurrency": 2500,
+  "balanced_20b_manifest_frozen": false,
+  "captured_at_unix": 1790949614.1396415,
+  "files": 117,
+  "first_real_batch": "batch_6b89e832fb2502826bee9684",
+  "first_real_body_tokens_by_split": {
+    "test": 531,
+    "train": 246394,
+    "validation": 1036
+  },
+  "first_real_documents_by_split": {
+    "test": 2,
+    "train": 288,
+    "validation": 2
+  },
+  "first_real_ready_sha256": "079d3aa850f97c7b6147496407054558845259c5efe209a6a1d891bd029dccd3",
+  "first_real_train_body_tokens": 246394,
+  "isolated_parser_wheels": [
+    {
+      "name": "tree-sitter-language-pack",
+      "version": "0.13.0"
+    },
+    {
+      "name": "tree-sitter",
+      "version": "0.25.2"
+    },
+    {
+      "name": "tree-sitter-c-sharp",
+      "version": "0.23.5"
+    },
+    {
+      "name": "tree-sitter-embedded-template",
+      "version": "0.25.0"
+    },
+    {
+      "name": "tree-sitter-yaml",
+      "version": "0.7.2"
+    }
+  ],
+  "physical_manifest_hashes_freshly_rechecked": true,
+  "public_distribution_eligible": false,
+  "registry_sha256": "9c2e0b29776cd5ce099651eaad15f4c63bdf724d9876beb01e8dbc9233b09964",
+  "root": "/srv/small-agent/datasets/small-agent-p0/curation_v4/full_inventory_v11",
+  "services": {
+    "curation_full_inventory_scan_v11.service": "ActiveState=activating\nSubState=start\nUnitFileState=enabled",
+    "curation_full_inventory_supply_v11.service": "ActiveState=activating\nSubState=start\nUnitFileState=static",
+    "curation_full_inventory_supply_v11.timer": "ActiveState=active\nSubState=running\nUnitFileState=enabled"
+  },
+  "shared_campaign_budget_cny": 1000,
+  "shared_ledger_commit_verified": true,
+  "source_decode_eos_all_loader_samples_verified": true,
+  "sources": 19,
+  "stage": "persistent_full_inventory_started_and_first_real_pack_verified",
+  "tests": {
+    "count": 13,
+    "log_sha256": "b2b92dd58178a3cb7dea4eefb86f93f6d1ebc74d1daea1b5360c02521423fdde",
+    "passed": true,
+    "teacher_in_engineering_tests_mocked": true
+  },
+  "training_started": false,
+  "two_rank_committed_sampler_resume_verified": true,
+  "version": 11
+}

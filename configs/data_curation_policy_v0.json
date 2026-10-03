@@ -1,0 +1,23 @@
+{
+  "version": "curation-v0",
+  "source_review_markers": [
+    "This preview shows page",
+    "Sign up to view the full content",
+    "Sign up to access the rest of the document",
+    "This solution is locked",
+    "Copyrighted material",
+    "付费阅读",
+    "付费后可见",
+    "登录后可见全文"
+  ],
+  "extraction_damage_patterns": [
+    {
+      "id": "flattened_python_class",
+      "regex": "\\bclass\\s+[A-Za-z_]\\w*(?:\\([^)]*\\))?\\s*:\\s*def\\s+[A-Za-z_]"
+    },
+    {
+      "id": "broken_latex_overline",
+      "regex": "\\\\overline\\{\\)"
+    }
+  ]
+}

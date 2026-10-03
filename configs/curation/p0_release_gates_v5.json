@@ -1,0 +1,60 @@
+{
+  "version": 5,
+  "scope": "internal_base_pretraining_source_audit_not_per_document_fact_certification",
+  "near": {
+    "threshold": 0.9,
+    "sketch_size": 64,
+    "minimum_shared_fraction": 0.5,
+    "maximum_pair_checks_per_document": 2000
+  },
+  "evaluation": {
+    "word_ngram": 13,
+    "cjk_ngram": 30,
+    "minimum_full_phrase_words": 6,
+    "required_tasks": [
+      "arc_easy_validation",
+      "arc_easy_test",
+      "hellaswag_validation",
+      "ceval_validation",
+      "humaneval_test",
+      "mbpp_test",
+      "mbpp_validation",
+      "gsm8k_test"
+    ]
+  },
+  "quality": {
+    "minimum_reference_per_class": 16,
+    "maximum_reference_false_keep": 0,
+    "minimum_reference_keep_rate": 0.875,
+    "minimum_source_samples_per_stratum": 12,
+    "minimum_joint_keep_rate": 0.75,
+    "minimum_valid_rate": 0.85,
+    "minimum_confidence": 0.85,
+    "maximum_calibration_age_days": 30,
+    "require_batch_audit": true,
+    "failed_batch_stratum_action": "hold_entire_stratum"
+  },
+  "licenses": [
+    "mit",
+    "apache-2.0",
+    "bsd-2-clause",
+    "bsd-3-clause",
+    "isc",
+    "0bsd",
+    "unlicense",
+    "cc0-1.0"
+  ],
+  "unknown_source": "hold",
+  "unknown_language": "hold",
+  "missing_reference": "hold",
+  "ambiguous_output": "hold",
+  "sequence_length": 4096,
+  "target_shard_tokens": 8000000,
+  "auto_training": false,
+  "distribution_eligible": false,
+  "limitations": [
+    "Near retrieval is approximate lexical similarity, not semantic equivalence.",
+    "Contamination covers frozen registered benchmarks and exact normalized phrase/ngram matches, not all paraphrases.",
+    "Independent test-verified Python references do not approve other programming languages or certify corpus-wide factual accuracy."
+  ]
+}

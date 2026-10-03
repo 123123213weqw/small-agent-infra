@@ -1,0 +1,86 @@
+{
+  "version": "p0_tokenizer_bakeoff_v1",
+  "seed": 20260924,
+  "corpus": {
+    "target_characters": 100000000,
+    "train_split_only": true,
+    "domain_character_targets": {
+      "general_zh": 30000000,
+      "general_en": 30000000,
+      "code_python": 22000000,
+      "code_shell": 1500000,
+      "code_other": 6500000,
+      "math_en": 10000000
+    },
+    "selection": "sha256(seed || document_id)",
+    "document_transport": "parquet_document_iterator",
+    "exact_deduplication": true,
+    "max_documents_per_family": 4,
+    "near_deduplication": false
+  },
+  "shared": {
+    "vocab_size": 32768,
+    "lowercase": false,
+    "special_tokens": [
+      "<pad>",
+      "<bos>",
+      "<eos>",
+      "<unk>",
+      "<|system|>",
+      "<|user|>",
+      "<|assistant|>",
+      "<|tool|>",
+      "<|tool_result|>",
+      "<|end|>",
+      "<|fim_prefix|>",
+      "<|fim_middle|>",
+      "<|fim_suffix|>",
+      "<|memory|>",
+      "<|memory_end|>"
+    ]
+  },
+  "variants": {
+    "bytelevel_bpe_32k": {
+      "model": "bpe",
+      "pretokenizer": "bytelevel",
+      "normalizer": null,
+      "initial_alphabet": "all_256_bytes",
+      "add_prefix_space": false,
+      "max_token_length": 32
+    },
+    "sentencepiece_bpe_32k": {
+      "model": "bpe",
+      "normalization_rule_name": "identity",
+      "remove_extra_whitespaces": false,
+      "add_dummy_prefix": false,
+      "byte_fallback": true,
+      "allow_whitespace_only_pieces": true,
+      "max_sentencepiece_length": 32
+    }
+  },
+  "evaluation": {
+    "heldout_documents_per_domain": 200,
+    "require_exact_roundtrip": true,
+    "require_zero_unknown_tokens": true,
+    "reject_special_token_collision": true,
+    "report_by_domain": [
+      "general_zh",
+      "general_en",
+      "technical",
+      "code_python",
+      "code_shell",
+      "code_other",
+      "math_zh",
+      "math_en"
+    ],
+    "metrics": [
+      "tokens_per_unicode_character",
+      "tokens_per_utf8_byte",
+      "document_tokens_p50",
+      "document_tokens_p95",
+      "byte_fallback_rate",
+      "unknown_token_rate",
+      "roundtrip_failure_rate"
+    ]
+  }
+}

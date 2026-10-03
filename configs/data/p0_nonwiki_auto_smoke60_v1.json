@@ -1,0 +1,286 @@
+{
+  "version": 1,
+  "description": "Pinned new non-Wikipedia v2 candidates -> six-GPU Qwen strict candidate gate; no paid calls or training approval",
+  "stages": [
+    {
+      "name": "deploy_review_code",
+      "kind": "command",
+      "host": "local",
+      "command": "ssh CPU_NODE 'mkdir -p /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/upstream_nonwiki_v1/audit/auto_review_smoke60_v1/code/scripts' && ssh GPU_NODE 'mkdir -p /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/nonwiki_new_quality_probe_v1/auto_review_smoke60_v1/code/scripts' && scp -q /path/to/small-agent-infra/scripts/p0_nonwiki_review_batch_v1.py CPU_NODE:/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/upstream_nonwiki_v1/audit/auto_review_smoke60_v1/code/scripts/p0_nonwiki_review_batch_v1.py && scp -q /path/to/small-agent-infra/scripts/p0_nonwiki_review_batch_v1.py GPU_NODE:/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/nonwiki_new_quality_probe_v1/auto_review_smoke60_v1/code/scripts/p0_nonwiki_review_batch_v1.py && scp -q /path/to/small-agent-infra/scripts/p0_run_nonwiki_qwen6_auto.sh GPU_NODE:/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/nonwiki_new_quality_probe_v1/auto_review_smoke60_v1/code/scripts/p0_run_nonwiki_qwen6_auto.sh && scp -q /path/to/small-agent-infra/scripts/p0_run_qwen_wave1_6.sh GPU_NODE:/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/nonwiki_new_quality_probe_v1/auto_review_smoke60_v1/code/scripts/p0_run_nonwiki_qwen6.sh && scp -q /path/to/small-agent-infra/scripts/annotate_jsonl.py GPU_NODE:/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/nonwiki_new_quality_probe_v1/auto_review_smoke60_v1/code/scripts/annotate_jsonl.py && scp -q /path/to/small-agent-infra/scripts/p0_verify_qwen_six.py GPU_NODE:/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/nonwiki_new_quality_probe_v1/auto_review_smoke60_v1/code/scripts/p0_verify_qwen_six.py",
+      "inputs": [
+        {
+          "host": "local",
+          "path": "/path/to/small-agent-infra/scripts/p0_nonwiki_review_batch_v1.py"
+        },
+        {
+          "host": "local",
+          "path": "/path/to/small-agent-infra/scripts/p0_run_nonwiki_qwen6_auto.sh"
+        },
+        {
+          "host": "local",
+          "path": "/path/to/small-agent-infra/scripts/p0_run_qwen_wave1_6.sh"
+        },
+        {
+          "host": "local",
+          "path": "/path/to/small-agent-infra/scripts/annotate_jsonl.py"
+        },
+        {
+          "host": "local",
+          "path": "/path/to/small-agent-infra/scripts/p0_verify_qwen_six.py"
+        }
+      ],
+      "outputs": [
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/upstream_nonwiki_v1/audit/auto_review_smoke60_v1/code/scripts/p0_nonwiki_review_batch_v1.py"
+        },
+        {
+          "host": "GPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/nonwiki_new_quality_probe_v1/auto_review_smoke60_v1/code/scripts/p0_nonwiki_review_batch_v1.py"
+        },
+        {
+          "host": "GPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/nonwiki_new_quality_probe_v1/auto_review_smoke60_v1/code/scripts/p0_run_nonwiki_qwen6_auto.sh"
+        },
+        {
+          "host": "GPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/nonwiki_new_quality_probe_v1/auto_review_smoke60_v1/code/scripts/p0_run_nonwiki_qwen6.sh"
+        },
+        {
+          "host": "GPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/nonwiki_new_quality_probe_v1/auto_review_smoke60_v1/code/scripts/annotate_jsonl.py"
+        },
+        {
+          "host": "GPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/nonwiki_new_quality_probe_v1/auto_review_smoke60_v1/code/scripts/p0_verify_qwen_six.py"
+        }
+      ]
+    },
+    {
+      "name": "export_raw_pointer_text",
+      "kind": "command",
+      "host": "CPU_NODE",
+      "command": "/home/user/anaconda3/bin/python /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/upstream_nonwiki_v1/audit/auto_review_smoke60_v1/code/scripts/p0_nonwiki_review_batch_v1.py export --root /srv/small-agent/datasets/small-agent-p0/p0_500m_v1 --output /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/upstream_nonwiki_v1/audit/auto_review_smoke60_v1/source.input.jsonl --limit-per-source 20",
+      "inputs": [
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/upstream_nonwiki_v1/audit/auto_review_smoke60_v1/code/scripts/p0_nonwiki_review_batch_v1.py"
+        },
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/upstream_nonwiki_v1/audit/high_precision_v2/report.json"
+        },
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/upstream_nonwiki_v1/audit/high_precision_v2/fineweb_edu_new.candidate_index.parquet"
+        },
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/upstream_nonwiki_v1/audit/high_precision_v2/finemath_4plus_new.candidate_index.parquet"
+        },
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/upstream_nonwiki_v1/audit/high_precision_v2/github_code_clean_new.candidate_index.parquet"
+        }
+      ],
+      "outputs": [
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/upstream_nonwiki_v1/audit/auto_review_smoke60_v1/source.input.jsonl"
+        },
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/upstream_nonwiki_v1/audit/auto_review_smoke60_v1/source.input.manifest.json"
+        }
+      ]
+    },
+    {
+      "name": "copy_review_text",
+      "kind": "copy",
+      "inputs": [
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/upstream_nonwiki_v1/audit/auto_review_smoke60_v1/source.input.jsonl"
+        }
+      ],
+      "outputs": [
+        {
+          "host": "GPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/nonwiki_new_quality_probe_v1/auto_review_smoke60_v1/source.input.jsonl"
+        }
+      ]
+    },
+    {
+      "name": "copy_review_manifest",
+      "kind": "copy",
+      "inputs": [
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/upstream_nonwiki_v1/audit/auto_review_smoke60_v1/source.input.manifest.json"
+        }
+      ],
+      "outputs": [
+        {
+          "host": "GPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/nonwiki_new_quality_probe_v1/auto_review_smoke60_v1/source.input.manifest.json"
+        }
+      ]
+    },
+    {
+      "name": "qwen_exact_preflight",
+      "kind": "command",
+      "host": "GPU_NODE",
+      "command": "/srv/small-agent/venvs/vllm-qwen38-fp8-v1/bin/python /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/nonwiki_new_quality_probe_v1/auto_review_smoke60_v1/code/scripts/p0_nonwiki_review_batch_v1.py prepare --input /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/nonwiki_new_quality_probe_v1/auto_review_smoke60_v1/source.input.jsonl --output-dir /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/nonwiki_new_quality_probe_v1/auto_review_smoke60_v1/input_bands6_v1 --model-path /srv/small-agent/models/Qwen3.8-27B-FP8 --prompt /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/code/configs/data/p0_teacher_quality_prompt_v2.txt",
+      "inputs": [
+        {
+          "host": "GPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/nonwiki_new_quality_probe_v1/auto_review_smoke60_v1/source.input.jsonl"
+        },
+        {
+          "host": "GPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/nonwiki_new_quality_probe_v1/auto_review_smoke60_v1/source.input.manifest.json"
+        },
+        {
+          "host": "GPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/nonwiki_new_quality_probe_v1/auto_review_smoke60_v1/code/scripts/p0_nonwiki_review_batch_v1.py"
+        },
+        {
+          "host": "GPU_NODE",
+          "path": "/srv/small-agent/models/Qwen3.8-27B-FP8/tokenizer.json"
+        },
+        {
+          "host": "GPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/code/configs/data/p0_teacher_quality_prompt_v2.txt"
+        }
+      ],
+      "outputs": [
+        {
+          "host": "GPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/nonwiki_new_quality_probe_v1/auto_review_smoke60_v1/input_bands6_v1/manifest.json"
+        },
+        {
+          "host": "GPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/nonwiki_new_quality_probe_v1/auto_review_smoke60_v1/input_bands6_v1/overlong.jsonl"
+        }
+      ]
+    },
+    {
+      "name": "qwen_six_card_rating",
+      "kind": "command",
+      "host": "GPU_NODE",
+      "command": "DATA=/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/nonwiki_new_quality_probe_v1/auto_review_smoke60_v1 CODE=/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/nonwiki_new_quality_probe_v1/auto_review_smoke60_v1/code bash /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/nonwiki_new_quality_probe_v1/auto_review_smoke60_v1/code/scripts/p0_run_nonwiki_qwen6_auto.sh ",
+      "inputs": [
+        {
+          "host": "GPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/nonwiki_new_quality_probe_v1/auto_review_smoke60_v1/input_bands6_v1/manifest.json"
+        },
+        {
+          "host": "GPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/nonwiki_new_quality_probe_v1/auto_review_smoke60_v1/code/scripts/p0_run_nonwiki_qwen6_auto.sh"
+        },
+        {
+          "host": "GPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/nonwiki_new_quality_probe_v1/auto_review_smoke60_v1/code/scripts/p0_run_nonwiki_qwen6.sh"
+        },
+        {
+          "host": "GPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/code/schemas/p0_teacher_quality_v2.json"
+        }
+      ],
+      "outputs": [
+        {
+          "host": "GPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/nonwiki_new_quality_probe_v1/auto_review_smoke60_v1/FINISHED6.json"
+        }
+      ],
+      "checks": [
+        {
+          "host": "GPU_NODE",
+          "command": "/srv/small-agent/venvs/vllm-qwen38-fp8-v1/bin/python -c 'import json; x=json.load(open(\"/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/nonwiki_new_quality_probe_v1/auto_review_smoke60_v1/FINISHED6.json\")); assert x[\"expected\"]>0 and x[\"unattempted\"]==0'"
+        }
+      ]
+    },
+    {
+      "name": "strict_qwen_gate",
+      "kind": "command",
+      "host": "GPU_NODE",
+      "command": "/srv/small-agent/venvs/vllm-qwen38-fp8-v1/bin/python /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/nonwiki_new_quality_probe_v1/auto_review_smoke60_v1/code/scripts/p0_nonwiki_review_batch_v1.py gate --data-dir /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/nonwiki_new_quality_probe_v1/auto_review_smoke60_v1 --output-dir /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/nonwiki_new_quality_probe_v1/auto_review_smoke60_v1/gate_v1",
+      "inputs": [
+        {
+          "host": "GPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/nonwiki_new_quality_probe_v1/auto_review_smoke60_v1/FINISHED6.json"
+        },
+        {
+          "host": "GPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/nonwiki_new_quality_probe_v1/auto_review_smoke60_v1/input_bands6_v1/manifest.json"
+        },
+        {
+          "host": "GPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/nonwiki_new_quality_probe_v1/auto_review_smoke60_v1/code/scripts/p0_nonwiki_review_batch_v1.py"
+        }
+      ],
+      "outputs": [
+        {
+          "host": "GPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/nonwiki_new_quality_probe_v1/auto_review_smoke60_v1/gate_v1/manifest.json"
+        },
+        {
+          "host": "GPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/nonwiki_new_quality_probe_v1/auto_review_smoke60_v1/gate_v1/strict_keep_candidates.jsonl"
+        },
+        {
+          "host": "GPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/nonwiki_new_quality_probe_v1/auto_review_smoke60_v1/gate_v1/rejected_or_unscored.jsonl"
+        }
+      ]
+    },
+    {
+      "name": "return_gate_manifest_json",
+      "kind": "copy",
+      "inputs": [
+        {
+          "host": "GPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/nonwiki_new_quality_probe_v1/auto_review_smoke60_v1/gate_v1/manifest.json"
+        }
+      ],
+      "outputs": [
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/upstream_nonwiki_v1/audit/auto_review_smoke60_v1/gate_v1/manifest.json"
+        }
+      ]
+    },
+    {
+      "name": "return_gate_strict_keep_candidates_jsonl",
+      "kind": "copy",
+      "inputs": [
+        {
+          "host": "GPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/nonwiki_new_quality_probe_v1/auto_review_smoke60_v1/gate_v1/strict_keep_candidates.jsonl"
+        }
+      ],
+      "outputs": [
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/upstream_nonwiki_v1/audit/auto_review_smoke60_v1/gate_v1/strict_keep_candidates.jsonl"
+        }
+      ]
+    },
+    {
+      "name": "return_gate_rejected_or_unscored_jsonl",
+      "kind": "copy",
+      "inputs": [
+        {
+          "host": "GPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/nonwiki_new_quality_probe_v1/auto_review_smoke60_v1/gate_v1/rejected_or_unscored.jsonl"
+        }
+      ],
+      "outputs": [
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/upstream_nonwiki_v1/audit/auto_review_smoke60_v1/gate_v1/rejected_or_unscored.jsonl"
+        }
+      ]
+    }
+  ]
+}

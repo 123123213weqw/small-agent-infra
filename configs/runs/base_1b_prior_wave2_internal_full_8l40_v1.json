@@ -1,0 +1,36 @@
+{
+  "version": "base_1b_prior_wave2_internal_full_8l40_v1",
+  "purpose": "internal_one_pass_prior_plus_wave2_training_continue_six_card_trial_with_explicit_eight_card_transition",
+  "distributable": false,
+  "model_spec": "configs/model/base_1b_gdn_v1.json",
+  "data_reader": "sharded_v1",
+  "data_dir": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pretrain_prior_plus_wave2_tokens_internal_v1",
+  "tokenizer_json": "/srv/small-agent/experiments/small-agent-base-1b-v1-engineering/data/tokenizer_v1/tokenizer.json",
+  "output_root": "/srv/small-agent/experiments/small-agent-base-1b-wave2-full8-v1/runs",
+  "seed": 20261001,
+  "context_length": 2048,
+  "mixture_block_size": 508262,
+  "micro_batch_size": 1,
+  "gradient_accumulation_steps": 4,
+  "max_steps": 15934,
+  "gradient_checkpointing": true,
+  "optimizer": {
+    "type": "adamw",
+    "maximum_learning_rate": 0.0002,
+    "minimum_learning_rate": 0.00002,
+    "betas": [0.9, 0.95],
+    "weight_decay": 0.1,
+    "gradient_clip": 1.0
+  },
+  "scheduler": {
+    "type": "warmup_cosine",
+    "warmup_tokens": 20000000,
+    "total_tokens": 1040432784
+  },
+  "logging_interval_steps": 10,
+  "validation": {"at_start": true, "interval_steps": 1000, "batch_size": 1},
+  "checkpoint": {"interval_steps": 1000, "steps": [250, 15934], "keep_full": 3},
+  "profiler": {"enabled": false},
+  "distributed": {"bucket_cap_mb": 25, "communication_hook": "none"},
+  "data_pipeline": {"num_workers": 0, "pin_memory": true, "measure": true, "trace_sample_refs": false}
+}

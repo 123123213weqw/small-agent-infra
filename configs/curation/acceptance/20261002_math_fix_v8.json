@@ -1,0 +1,76 @@
+{
+  "version": 8,
+  "created_unix": 1790939444,
+  "stage": "reference_protocol_passed_structural_subset_scan_running_not_training_ready",
+  "independent_reference": {
+    "counts": {
+      "drop_raw_teacher_drop": 32,
+      "drop_total": 32,
+      "keep_conservative_keep_veto": 1,
+      "keep_keep": 31,
+      "keep_raw_teacher_keep": 32,
+      "keep_total": 32
+    },
+    "evaluation_reference_only": true,
+    "holds": [],
+    "quality_thresholds_unchanged": true,
+    "reference_manifest_sha256": "85e9045e3a6017509c3e3af6fc9bb0b2a5e46ceec0705c8b225cabbc39c2579a",
+    "reference_sha256": "501f26f9f82ebb4cca9d1b32f81fa72cd5918cbb37a6db896ec3bca940459cfc",
+    "review_state_sha256": "59ceb9de93f83b72ddfbfdf1ca7af3b3accdbf50154287136ccb17163a5b21de",
+    "status": "passed",
+    "version": 8
+  },
+  "complete_filter_shards": 29,
+  "total_filter_shards": 64,
+  "completed_shards_only_structural_stats": {
+    "boilerplate_dominant_hold": 450,
+    "directory_search_page_hold": 2193,
+    "host_outside_conservative_subset_hold": 2873567,
+    "insufficient_math_content_signals_hold": 35270,
+    "passed_test_body_tokens": 1742778,
+    "passed_test_documents": 1137,
+    "passed_train_body_tokens": 179180226,
+    "passed_train_documents": 116531,
+    "passed_validation_body_tokens": 1792475,
+    "passed_validation_documents": 1217,
+    "repeated_paragraphs_hold": 455,
+    "seen_documents": 3032787,
+    "structural_candidate_pass_not_quality_approval": 118885,
+    "tiny_fragment_hold": 1944,
+    "oversized_body_hold": 20,
+    "replacement_or_null_character_hold": 3
+  },
+  "original_math_quality_hold_preserved": true,
+  "ready_release_count": 5,
+  "ready_train_body_tokens": 33463612,
+  "new_math_ready_train_body_tokens": 0,
+  "maximum_concurrency": 2500,
+  "shared_budget_cny": 1000,
+  "shared_ledger_requests": 1336,
+  "conservative_estimated_or_reserved_cny": 36.467019,
+  "training_started": false,
+  "distribution_eligible": false,
+  "active_units": {
+    "small-agent-math-clean-v8-20261002.service": "ActiveState=active\nSubState=running",
+    "curation_math_clean_supply_v8.timer": "ActiveState=active\nSubState=waiting",
+    "small-agent-disk-near-index-v6-20261002.service": "ActiveState=active\nSubState=running"
+  },
+  "evidence_files": [
+    {
+      "path": "/srv/small-agent/datasets/small-agent-p0/curation_v4/references/math_quality_v8_r5/REFERENCE_GATE.json",
+      "sha256": "c085066eaf5fa61ef43d113fad8f926266b7dcd4afd5da2bdd8f78f115e054d5"
+    },
+    {
+      "path": "/srv/small-agent/datasets/small-agent-p0/curation_v4/references/math_quality_v8_r5/PROTOCOL_REBIND.json",
+      "sha256": "493bf1baabbbf7e394767d686ea2440dea19c2fa8562e3d58cf4bffe164ee923"
+    },
+    {
+      "path": "/srv/small-agent/datasets/small-agent-p0/curation_v4/code/configs/curation/p0_math_clean_supply_v8.json",
+      "sha256": "5c0b4c00a9a6a77604a35387d4a3fd0eaba70b6219994f8ac2114b72115fcb4a"
+    },
+    {
+      "path": "/srv/small-agent/datasets/small-agent-p0/curation_v4/code/configs/curation/p0_math_structural_filter_v7.json",
+      "sha256": "06a9e4bad638c0adedecff508882f41fb9c3b687b32dff66ac60d647e7139e3e"
+    }
+  ]
+}

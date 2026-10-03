@@ -1,0 +1,9 @@
+[Unit]
+Description=Update physically verified training-data delivery every 30 minutes
+[Timer]
+OnBootSec=3min
+OnUnitInactiveSec=30min
+Persistent=true
+Unit=curation_production_delivery_v12.service
+[Install]
+WantedBy=timers.target

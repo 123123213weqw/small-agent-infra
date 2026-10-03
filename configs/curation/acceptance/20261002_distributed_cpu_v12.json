@@ -1,0 +1,83 @@
+{
+  "version": 12,
+  "stage": "DISTRIBUTED_CPU_INTEGRATION_ACCEPTED_NOT_DATA_APPROVAL",
+  "verified_unix": 1790955109.3611238,
+  "components": {
+    "scripts/p0_distributed_scan_v12.py": "97e3e32642db8b1b01c71d18dbb3e1bad633aec1c99eb544099d8ecac10b14e1",
+    "scripts/p0_distributed_worker_v12.py": "982f06d9adedc6d6ff4bf856e4ea72471872b977fdad34d41f22839a08460eaf",
+    "tests/test_distributed_scan_v12.py": "7907fa689081e3774c462fae81acaaccbfe30a87a02503c4e922426d694f2637",
+    "configs/curation/p0_distributed_scan_v12.json": "5f50d0d2c53d643222f475609f2d6d5ece6094a164b86b24f9b05c1ea71da0d9",
+    "deploy/systemd/curation_distributed_cpu_v12.service": "6453d97dd4d93aa66e53b74ce4210263ed6debacb496e3f326070036a86c8269"
+  },
+  "tests_passed": 13,
+  "test_log_sha256": "7e5d5b8f8df97224eca59d816ed6403e3b4a75365a8821ed9a9b250132a8cfa8",
+  "three_node_probe": {
+    "stage": "THREE_NODE_PROBE_PASS_NOT_TRAINING_APPROVAL",
+    "results": [
+      {
+        "node": "primary_v100",
+        "task_id": "f23b03f7a3bee6b21f463645b6467804475c88cfcfe6494c50c65fb61b56bc90",
+        "rows": 256,
+        "elapsed_seconds": 5.857
+      },
+      {
+        "node": "external_v100",
+        "task_id": "f23b03f7a3bee6b21f463645b6467804475c88cfcfe6494c50c65fb61b56bc90",
+        "rows": 256,
+        "elapsed_seconds": 4.619
+      },
+      {
+        "node": "l40_cpu",
+        "task_id": "f23b03f7a3bee6b21f463645b6467804475c88cfcfe6494c50c65fb61b56bc90",
+        "rows": 256,
+        "elapsed_seconds": 1.827
+      }
+    ],
+    "metadata_sha256": "b180d9e42793ec50816cafe49ea52151fe9e37e76440369eb07548aad2d26b54",
+    "rows": 256
+  },
+  "first_completed_file": {
+    "source": "ultrafineweb_en",
+    "start": 320000,
+    "end": 566016,
+    "new_candidate_rows": 246016,
+    "rows_by_node": {
+      "primary_v100": 65536,
+      "external_v100": 98304,
+      "l40_cpu": 82176
+    }
+  },
+  "service_enabled": "enabled",
+  "latest_status": {
+    "version": 12,
+    "updated_unix": 1790955072.002792,
+    "training_started": false,
+    "stage": "PREPARING_HASHED_NODE_CACHES",
+    "source": "github_code_clean_supply_v4",
+    "file": "part-00000.parquet",
+    "committed_row": 0,
+    "nodes": {
+      "primary_v100": {
+        "completed_tasks": 1,
+        "completed_rows": 32768,
+        "errors": 0,
+        "worker_seconds": 24.132
+      },
+      "external_v100": {
+        "completed_tasks": 1,
+        "completed_rows": 32768,
+        "errors": 0,
+        "worker_seconds": 19.072
+      },
+      "l40_cpu": {
+        "completed_tasks": 1,
+        "completed_rows": 3054,
+        "errors": 0,
+        "worker_seconds": 1.577
+      }
+    }
+  },
+  "training_started": false,
+  "new_training_tokens_approved_by_this_test": 0,
+  "teacher_budget_changed": false
+}

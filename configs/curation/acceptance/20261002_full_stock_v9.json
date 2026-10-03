@@ -1,0 +1,68 @@
+{
+  "version": 9,
+  "observed_at_utc": "2026-10-02T12:11:54.754901+00:00",
+  "stage": "all_stock_scanner_started_and_quota_queue_installed_not_20b_complete",
+  "server": "CPU_NODE",
+  "candidate_train_body_tokens": 11700364011,
+  "registered_source_shards": 72,
+  "observed_scanned_records": 30720,
+  "full_stock_scan_complete": false,
+  "target_train_body_tokens": 20000000000,
+  "targets_by_domain": {
+    "general_en": 7000000000,
+    "general_zh": 5000000000,
+    "technical": 2000000000,
+    "code": 4000000000,
+    "math": 2000000000
+  },
+  "ready_by_domain": {
+    "code": 33463612,
+    "math": 0,
+    "general_en": 0,
+    "general_zh": 0,
+    "technical": 0
+  },
+  "legacy_uncertified_by_domain": {
+    "general_en": 824688270,
+    "general_zh": 210701974,
+    "code": 3443535,
+    "math": 597716,
+    "technical": 0
+  },
+  "shared_campaign_budget_cny": 1000,
+  "maximum_concurrency": 2500,
+  "gpu_training_started": false,
+  "production_terms": "existing_source_level_internal_only",
+  "observed_services": {
+    "curation_full_stock_scan_v9.service": "activating/start_exec_running",
+    "curation_full_stock_queue_v9.timer": "active/waiting",
+    "curation_full_stock_queue_v9.service": "inactive/dead_waiting_scan_exit_0"
+  },
+  "remote_python_tests": {
+    "test_full_stock_v9": 19,
+    "test_math_release_v9": {
+      "executed": 7,
+      "includes_imported_v6_regression": 4
+    },
+    "test_balanced_training_bundle_v9": 2
+  },
+  "limitations": [
+    "natural_corpus_source_calibration_not_complete",
+    "nonpython_language_references_and_publishers_pending",
+    "mixed_failed_tier_per_document_branch_pending",
+    "general_zh_general_en_technical_source_ingest_pending",
+    "no_new_downloads_started",
+    "goal_counts_only_unique_READY_train_body_not_legacy_or_candidates"
+  ],
+  "code_sha256": {
+    "configs/curation/p0_full_stock_filter_v9.json": "db0713765168c8fe6b7d10e4a3e31f7729147cf0753be946c0894ccd01d6a4e5",
+    "configs/curation/p0_full_stock_supply_v9.json": "b7e4f94557deb4465a2ba91509f61031bac07412de9eee01fc651c27aa658465",
+    "src/small_agent/curation/full_stock_v9.py": "a055b6c2f2efe0a6ef48b12c5b75817c49f6744feabddd69c29b797f30631364",
+    "scripts/p0_full_stock_scan_v9.py": "268251310664afdbd5bfc49d326ac2c7422a571c618fda2b4e6771de8fd9e535",
+    "scripts/p0_full_stock_math_v9.py": "feaa4228a4ec0ba12107a89e11eb850d68de67d882b877edeb38dcc1ce618750",
+    "scripts/p0_full_stock_status_v9.py": "95d63b8f02cde284b8aba660ea100c7be5564a51618442b243b0404b817ce0ea",
+    "scripts/p0_full_stock_queue_v9.py": "538b6b3aa028a5bacec12ca9f0960fc90c7c939c7d7ac8e6ae5d8f0d6ee01ea7",
+    "scripts/p0_release_math_batch_v9.py": "416aaa88ebbaa0f73b4c9fcb612d848c7ab31aeddfce1f69c5bb8de8d8ac38da",
+    "scripts/p0_balanced_training_bundle_v9.py": "a3c9e8949f59e3b7ccd95b0cac2fc30b675f3ffd715d2590cc08769b554b26f5"
+  }
+}

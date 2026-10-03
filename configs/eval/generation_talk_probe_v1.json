@@ -1,0 +1,29 @@
+{
+  "version": "generation_smoke_v1",
+  "decoding": {
+    "strategy": "greedy",
+    "max_new_tokens": 96
+  },
+  "prompts": [
+    {
+      "id": "zh_chat",
+      "domain": "general_zh",
+      "text": "问：你好，请用一句话介绍你自己。\n答："
+    },
+    {
+      "id": "zh_knowledge",
+      "domain": "general_zh",
+      "text": "问题：什么是机器学习？\n回答："
+    },
+    {
+      "id": "math_simple",
+      "domain": "math_zh",
+      "text": "问题：2 + 3 等于多少？\n答案："
+    },
+    {
+      "id": "code_python",
+      "domain": "code_python",
+      "text": "def add(a, b):\n    return"
+    }
+  ]
+}

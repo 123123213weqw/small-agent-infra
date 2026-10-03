@@ -1,0 +1,18 @@
+{
+  "adapter_version": "p0_source_adapter_v1",
+  "source_id": "github_code_clean_shell",
+  "dataset": "codeparrot/github-code-clean",
+  "revision": "c48d40f9e70f0196f8236901ee35807f7d6c44c0",
+  "subset": "mixed-shard-filtered-shell",
+  "domain": "code_shell",
+  "language": "shell",
+  "license_status": "approved",
+  "text_field": "code",
+  "locator_fields": ["repo_name", "path"],
+  "family_fields": ["repo_name"],
+  "metadata_fields": ["repo_name", "path", "language", "license", "size"],
+  "row_filters": [
+    {"field": "language", "allowed_values": ["Shell"]},
+    {"field": "license", "allowed_values": ["mit", "apache-2.0", "bsd-3-clause", "bsd-2-clause", "isc", "cc0-1.0", "unlicense"]}
+  ]
+}

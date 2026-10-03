@@ -1,0 +1,75 @@
+{
+  "version": "p0_fineweb_edu_wave2_v1",
+  "dataset": "HuggingFaceFW/fineweb-edu",
+  "revision": "87f09149ef4734204d70ed1d046ddc9ca3f2b8f9",
+  "upstream_license_label": "odc-by",
+  "status": "download_and_candidate_audit_not_training_approved",
+  "items": [
+    {
+      "path": "sample/100BT/000_00005.parquet",
+      "bytes": 2152630983,
+      "sha256": "9f089373c48cdeea728da9790bc369cc4d88243b3b18c13f5ec4e06e8446b6df"
+    },
+    {
+      "path": "sample/100BT/000_00006.parquet",
+      "bytes": 2150872058,
+      "sha256": "20e2491fc8dd6211998a550cdeb8a0e28b6d93b4b8495e463c248871c332acf1"
+    },
+    {
+      "path": "sample/100BT/000_00007.parquet",
+      "bytes": 2150919214,
+      "sha256": "98e15e6976fe0e9cafe4e695d37ca836cae9ffa3c4c3937f8f1325dc6bf899e8"
+    },
+    {
+      "path": "sample/100BT/000_00008.parquet",
+      "bytes": 2151989277,
+      "sha256": "0641091de585eea70376e19c25ca34ca913af321c715e5a40805219424bebdf4"
+    },
+    {
+      "path": "sample/100BT/000_00009.parquet",
+      "bytes": 2150824077,
+      "sha256": "6221c50fb09301b6d3653a18e384de1fe134c90e917926e987a502bcef91faf7"
+    },
+    {
+      "path": "sample/100BT/001_00000.parquet",
+      "bytes": 2153082292,
+      "sha256": "e2882e48990027b0a8866cf5a305ca7411c92c09ac465b7ec73ad5ccbed70cab"
+    },
+    {
+      "path": "sample/100BT/001_00001.parquet",
+      "bytes": 2152454612,
+      "sha256": "678e992f7b98482c5ded16da0b14d463550abeb5747340d5c5a8b6b7e410b526"
+    },
+    {
+      "path": "sample/100BT/001_00002.parquet",
+      "bytes": 2153433162,
+      "sha256": "8c1bb7f92e3199aa3a0a48ecf62946a3349af47772bde984cc83cca5bef267e6"
+    },
+    {
+      "path": "sample/100BT/001_00003.parquet",
+      "bytes": 2153035941,
+      "sha256": "f20dd1586eb6a9aab2eb8e97020d6c1e2b061fb88b9cee4103a0a98858023de5"
+    },
+    {
+      "path": "sample/100BT/001_00004.parquet",
+      "bytes": 2151634678,
+      "sha256": "cb3b26b79288c4a965ae8c99cfc93eba5e14c5ec98472120b7e1dedb0015c6f8"
+    },
+    {
+      "path": "sample/100BT/001_00005.parquet",
+      "bytes": 2151681049,
+      "sha256": "deae87e78f9811e23b835f59482734ba1d542f9bde91b93acf3bdd3902ede1c8"
+    },
+    {
+      "path": "sample/100BT/001_00006.parquet",
+      "bytes": 2152289650,
+      "sha256": "7f9ac4b60f7cfa292cba83a676ce3afedfae44d343363671acb215447d4af172"
+    },
+    {
+      "path": "sample/100BT/001_00007.parquet",
+      "bytes": 2152010940,
+      "sha256": "767f6546c88d78d630bd5ae6b091c82bec1026736c2d135fd331bfa161bd889f"
+    }
+  ],
+  "note": "New shards disjoint from prior 000_00003 and 000_00004. SHA-256 equals upstream LFS oid. Source license, near-dedup, contamination, quality, and exact tokenizer count still require gates."
+}

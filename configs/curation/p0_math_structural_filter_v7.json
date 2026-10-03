@@ -1,0 +1,16 @@
+{
+  "version": 7,
+  "scope": "conservative_math_candidate_subset_not_quality_approval",
+  "allowed_exact_hosts": ["math.stackexchange.com", "mathoverflow.net", "mathworld.wolfram.com", "proofwiki.org", "www.proofwiki.org", "math.libretexts.org", "stats.libretexts.org", "openstax.org", "www.openstax.org", "tutorial.math.lamar.edu", "mathsisfun.com", "www.mathsisfun.com", "statlect.com", "www.statlect.com", "www.probabilitycourse.com", "probabilitycourse.com", "en.wikibooks.org"],
+  "minimum_body_tokens": 256,
+  "maximum_body_bytes": 100000,
+  "minimum_math_terms": 3,
+  "maximum_repeated_paragraph_fraction": 0.20,
+  "maximum_boilerplate_fraction": 0.15,
+  "required_language": "en",
+  "teacher_input": "whole_original_body",
+  "modify_original_body": false,
+  "approval_requires_independent_fresh_calibration": true,
+  "distribution_eligible": false,
+  "other_hosts": "hold_not_deleted"
+}

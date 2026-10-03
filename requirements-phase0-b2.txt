@@ -1,0 +1,5 @@
+numpy>=2.0
+scikit-learn>=1.5
+# 2.5.1 still ships sm_70 kernels required by Tesla V100.
+torch==2.5.1
+tensorboard>=2.17,<3

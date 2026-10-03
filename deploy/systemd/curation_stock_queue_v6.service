@@ -1,0 +1,14 @@
+[Unit]
+Description=11.7B-candidate-stock metadata scope gates and bounded internal mathematical data release
+After=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/srv/small-agent/datasets/small-agent-p0/curation_v4/code
+ExecStart=/srv/small-agent/venvs/deepspec_gemma4/bin/python scripts/p0_stock_queue_v6.py --config configs/curation/p0_stock_117b_v6.json
+Environment=CUDA_VISIBLE_DEVICES=
+Environment=OMP_NUM_THREADS=1
+CPUQuota=800%
+MemoryMax=16G
+Nice=15
+TimeoutStartSec=infinity

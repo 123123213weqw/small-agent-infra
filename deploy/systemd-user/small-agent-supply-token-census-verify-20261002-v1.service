@@ -1,0 +1,22 @@
+[Unit]
+Description=Verify candidate corpus token counts (not training approval)
+Requires=small-agent-supply-token-census-20261002-v1.service
+After=small-agent-supply-token-census-20261002-v1.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+WorkingDirectory=/srv/small-agent/datasets/small-agent-p0/curation_v4/code
+Environment=CUDA_VISIBLE_DEVICES=
+Environment=RAYON_NUM_THREADS=2
+Environment=TOKENIZERS_PARALLELISM=true
+Environment=OMP_NUM_THREADS=1
+Environment=OPENBLAS_NUM_THREADS=1
+Nice=15
+CPUQuota=200%
+MemoryMax=8G
+TimeoutStartSec=infinity
+ExecStart=/bin/bash -c '/srv/small-agent/venvs/deepspec_gemma4/bin/python -u scripts/p0_verify_supply_token_census_v4.py --root /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/upstream_supply_v4/candidate_token_census_v1 --tokenizer /srv/small-agent/datasets/small-agent-p0/p0_1m_smoke_v1/tokenizer_v1/tokenizer.json >> /srv/small-agent/artifacts/small-agent/curation_v4/logs/supply_token_census_verify_20261002_v1.log 2>&1; rc=$?; echo "$rc" > /srv/small-agent/artifacts/small-agent/curation_v4/logs/supply_token_census_verify_20261002_v1.exit; exit "$rc"'
+
+[Install]
+WantedBy=default.target

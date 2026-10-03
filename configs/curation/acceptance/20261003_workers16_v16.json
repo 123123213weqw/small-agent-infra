@@ -1,0 +1,32 @@
+{
+  "version": 16,
+  "status": "INSTALLED_FOR_NEXT_NATURAL_TICK_CURRENT_QUEUE_NOT_INTERRUPTED",
+  "updated_unix": 1790994301.5809264,
+  "workers_next_tick": 16,
+  "active_pid": 3486353,
+  "active_command": "/srv/small-agent/venvs/deepspec_gemma4/bin/python -u scripts/p0_inventory_supply_v15.py --config configs/curation/p0_full_inventory_supply_v11_r2.json --performance-config configs/curation/p0_parallel_release_v15.json ",
+  "worker_upgrade_already_active": false,
+  "benchmark_receipt_sha256": "2d604209ea583deb1d541739f429a407bb0a71750253c87b95f8692a48bb4bea",
+  "benchmark_speedup": 1.2696689162677677,
+  "remote_tests": 27,
+  "remote_test_log_sha256": "300728169d511594be2058f1a1c54c1f7ee1d06397623a5eb665ea6647e4e1cd",
+  "quality_thresholds_changed": false,
+  "production_ledger_written_by_upgrade": false,
+  "systemd_show": "ExecStart={ path=/srv/small-agent/venvs/deepspec_gemma4/bin/python ; argv[]=/srv/small-agent/venvs/deepspec_gemma4/bin/python -u scripts/p0_inventory_supply_v15.py --config configs/curation/p0_full_inventory_supply_v11_r2.json --performance-config configs/curation/p0_parallel_release_16workers_v16.json ; ignore_errors=no ; start_time=[n/a] ; stop_time=[n/a] ; pid=0 ; code=(null) ; status=0/0 }\nControlGroup=/user.slice/user-1000.slice/user@1000.service/app.slice/curation_full_inventory_supply_v11.service\nCPUQuotaPerSecUSec=20s\nMemoryMax=34359738368\n",
+  "cpu_quota_configured_logical_cpu_equivalent": 20,
+  "cpu_quota_enforced": false,
+  "cpu_controller_delegated_to_user_service": false,
+  "system_level_cgroup_changed": false,
+  "files_sha256": {
+    "/srv/small-agent/datasets/small-agent-p0/curation_v4/code/configs/curation/p0_parallel_release_16workers_v16.json": "038f5543026032d9e3f7d95ab4d9342728629c921193bb796185e14158f44999",
+    "/srv/small-agent/datasets/small-agent-p0/curation_v4/code/configs/curation/p0_parallel_release_v15.json": "3c8f0003ee74609e81115e982521404c9d68396921e5fa2f6eb20d2d2f270106",
+    "/srv/small-agent/datasets/small-agent-p0/curation_v4/code/scripts/p0_inventory_supply_v15.py": "39ddec8a47074792cc40fb163658e042592cd73bf19d21dabb2656dabfb77e89",
+    "/srv/small-agent/datasets/small-agent-p0/curation_v4/code/scripts/p0_release_inventory_batch_v15.py": "e2f58c4a8448ba41dda31a17e25a889c0f2a5e2e528293c6fbad59644e5c6035",
+    "/srv/small-agent/datasets/small-agent-p0/curation_v4/code/scripts/p0_parallel_near_v13.py": "cfe11252a95db7cbc2e08a6c5c878c6526d171553ae1b70d17e68468f000cf50",
+    "/srv/small-agent/datasets/small-agent-p0/curation_v4/code/scripts/p0_benchmark_workers_v16.py": "f05c048b93227fb9b60f7a310e60618b844099ac39cec0fc0620b12a1085c3d9",
+    "/srv/small-agent/datasets/small-agent-p0/curation_v4/code/tests/test_workers16_v16.py": "86966f443dade2643938a33bb303c0be37fd1c53c1118d6636983b2643beaff9",
+    "/home/user/.config/systemd/user/curation_full_inventory_supply_v11.service.d/parallel-v16.conf": "07cdf396ea1db6b577cd0b56c5dea844c59213c27145c6b4864f11876ccda3df"
+  },
+  "timer_active": "active",
+  "timer_enabled": "enabled"
+}

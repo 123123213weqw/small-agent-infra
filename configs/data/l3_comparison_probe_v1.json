@@ -1,0 +1,61 @@
+{
+  "version": "l3_comparison_probe_v1",
+  "status": "download_only_not_training_approved",
+  "purpose": "Pinned first-round comparison samples, not an accepted or representative training mixture.",
+  "items": [
+    {
+      "source_id": "swallow_math_v2_qa",
+      "dataset": "tokyotech-llm/swallow-math-v2",
+      "revision": "b59a686bca9bb92e290f558ea7dcd73ec707b602",
+      "license_review": "apache-2.0_card_verify_upstream",
+      "path": "stage3-qa/train-00124-Qwen3-235B-A22B-Thinking-2507-FP8.jsonl",
+      "bytes": 64749538,
+      "sha256": "786af893b39b3a4339af5182a122fc837355281ad8209acdf13ab1ea27074f44"
+    },
+    {
+      "source_id": "swallow_math_v2_textbook",
+      "dataset": "tokyotech-llm/swallow-math-v2",
+      "revision": "b59a686bca9bb92e290f558ea7dcd73ec707b602",
+      "license_review": "apache-2.0_card_verify_upstream",
+      "path": "stage3-textbook/train-00126-Qwen3-235B-A22B-Thinking-2507-FP8.jsonl",
+      "bytes": 133142589,
+      "sha256": "44db0c4a4779845ec837739a96a52359ce48056214cdc4db60aba6e2ac67c525"
+    },
+    {
+      "source_id": "swallow_code_v2_python",
+      "dataset": "tokyotech-llm/swallow-code-v2",
+      "revision": "a98c80e3cc4150450f30b9eb8dd9d1e0097d1cfa",
+      "license_review": "apache-2.0_card_verify_upstream",
+      "path": "stage5-auto-format/python/medium/train_0030.jsonl",
+      "bytes": 2151617730,
+      "sha256": "5dc967287b31ec41d2c3ca84bf5ddc1bec6703199f84521bd64c17f17591305a"
+    },
+    {
+      "source_id": "nemotron_math_textbooks",
+      "dataset": "nvidia/Nemotron-Pretraining-Specialized-v1",
+      "revision": "9ed3718b5f2ae29074c5e34e64115432b7c4320f",
+      "license_review": "cc-by-4.0_card_verify_per_record",
+      "path": "Nemotron-Pretraining-Math-Textbooks/part_000012.parquet",
+      "bytes": 2151680720,
+      "sha256": "821cadcc7632bc1e7ce52d6df0520c09752036323ca8dd01b43b195e69113644"
+    },
+    {
+      "source_id": "nemotron_scientific_coding",
+      "dataset": "nvidia/Nemotron-Pretraining-Specialized-v1",
+      "revision": "9ed3718b5f2ae29074c5e34e64115432b7c4320f",
+      "license_review": "special_subset_terms_review_required",
+      "path": "Nemotron-Pretraining-Scientific-Coding/part_000000.parquet",
+      "bytes": 548476054,
+      "sha256": "96a49ad270e116cf90a8b71b94e2db6ad30dd86cece18c7870d1f9553fef9531"
+    },
+    {
+      "source_id": "cosmopedia_v2",
+      "dataset": "HuggingFaceTB/smollm-corpus",
+      "revision": "3ba9d605774198c5868892d7a8deda78031a781f",
+      "license_review": "odc-by_card_verify_upstream",
+      "path": "cosmopedia-v2/train-00037-of-00104.parquet",
+      "bytes": 1176413760,
+      "sha256": "f5ae428775eba8526dc0e0875e1e152ec9889ca587d601d34b7cf8a38099f4ec"
+    }
+  ]
+}

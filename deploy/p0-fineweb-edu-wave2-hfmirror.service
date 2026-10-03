@@ -1,0 +1,16 @@
+[Unit]
+Description=P0 FineWeb-Edu wave2 pinned hf-mirror fetch on L40 (no GPU)
+
+[Service]
+Type=simple
+WorkingDirectory=/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/fineweb_edu_wave2_v1/stage
+ExecStart=/usr/bin/python3 -u /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/fineweb_edu_wave2_v1/stage/p0_fetch_fineweb_edu_wave2_hfmirror.py --root /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/fineweb_edu_wave2_v1/stage --wait-timeout 86400
+Restart=on-failure
+RestartSec=60
+Nice=10
+CPUQuota=100%
+MemoryMax=1G
+NoNewPrivileges=yes
+
+[Install]
+WantedBy=default.target

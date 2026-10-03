@@ -1,0 +1,14 @@
+{
+  "adapter_version": "p0_source_adapter_v1",
+  "source_id": "fineweb_edu",
+  "dataset": "HuggingFaceFW/fineweb-edu",
+  "revision": "87f09149ef4734204d70ed1d046ddc9ca3f2b8f9",
+  "subset": "sample/100BT",
+  "domain": "general_en",
+  "language": "en",
+  "license_status": "approved",
+  "text_field": "text",
+  "locator_fields": ["id", "url"],
+  "family_fields": ["url"],
+  "metadata_fields": ["url", "dump", "file_path", "language", "language_score", "token_count", "score", "int_score"]
+}

@@ -1,0 +1,18 @@
+[Unit]
+Description=P0 non-Wikipedia full eight-GPU Qwen review via V100-to-L40 Tailnet SSH
+After=network-online.target
+Wants=network-online.target
+StartLimitIntervalSec=1800
+StartLimitBurst=3
+
+[Service]
+Type=oneshot
+ExecStart=/bin/bash /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/upstream_nonwiki_v1/audit/auto_review_full_v1/code/scripts/p0_nonwiki_direct_full_v2.sh
+WorkingDirectory=/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/upstream_nonwiki_v1/audit/auto_review_full_v1
+TimeoutStartSec=0
+Restart=on-failure
+RestartSec=120
+KillMode=control-group
+
+[Install]
+WantedBy=default.target

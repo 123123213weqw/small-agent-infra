@@ -1,0 +1,14 @@
+[Unit]
+Description=Qwen3.8-27B-FP8 optimized vLLM on L40 GPU %i
+After=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/bin/bash /srv/small-agent/experiments/qwen38-fp8-serving-v1/launch-qwen-single-gpu-tune.sh %i 1800%i 32 graphs
+Restart=on-failure
+RestartSec=10
+TimeoutStopSec=60
+KillMode=control-group
+
+[Install]
+WantedBy=default.target

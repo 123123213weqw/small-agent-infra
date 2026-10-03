@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "p0_teacher_quality_v1",
+  "type": "object",
+  "required": [
+    "document_id",
+    "keep",
+    "quality",
+    "completeness",
+    "educational_value",
+    "format_integrity",
+    "reason_codes"
+  ],
+  "properties": {
+    "document_id": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "keep": {"type": "boolean"},
+    "quality": {"type": "integer", "minimum": 1, "maximum": 5},
+    "completeness": {"type": "integer", "minimum": 1, "maximum": 5},
+    "educational_value": {"type": "integer", "minimum": 1, "maximum": 5},
+    "format_integrity": {"type": "integer", "minimum": 1, "maximum": 5},
+    "reason_codes": {"type": "array", "items": {"type": "string"}}
+  },
+  "additionalProperties": false
+}

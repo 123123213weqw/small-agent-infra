@@ -1,0 +1,13 @@
+{
+  "version": "generation_smoke_v1",
+  "decoding": {
+    "strategy": "greedy",
+    "max_new_tokens": 48
+  },
+  "prompts": [
+    {"id": "zh_explanation", "domain": "general_zh", "text": "机器学习是"},
+    {"id": "en_explanation", "domain": "general_en", "text": "Machine learning is"},
+    {"id": "python_function", "domain": "code_python", "text": "def add(a, b):\n    return"},
+    {"id": "basic_math", "domain": "math_zh", "text": "计算 2 + 3，结果是"}
+  ]
+}

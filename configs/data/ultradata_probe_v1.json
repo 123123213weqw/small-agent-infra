@@ -1,0 +1,43 @@
+{
+  "version": "p0_overnight_upstream_v1",
+  "status": "download_only_not_training_approved",
+  "selection": "Fixed, non-first shards for a small V100 quality probe; not a representative or accepted training mixture.",
+  "items": [
+    {
+      "source_id": "ultrafineweb_zh",
+      "dataset": "openbmb/Ultra-FineWeb",
+      "revision": "02c85641e3d19a854be2e09139c25adaa9518063",
+      "license": "project_card_apache_2_0_source_rights_pending",
+      "path": "data/ultrafineweb_zh/ultrafineweb-zh-part-029-of-256.parquet",
+      "bytes": 1267896361,
+      "sha256": "12d0b15d892cefd6ec0ffcdd3a670ea53986f4f80e21399ed0bdbd660a31e1b5"
+    },
+    {
+      "source_id": "ultrafineweb_en",
+      "dataset": "openbmb/Ultra-FineWeb",
+      "revision": "02c85641e3d19a854be2e09139c25adaa9518063",
+      "license": "project_card_apache_2_0_source_rights_pending",
+      "path": "data/ultrafineweb_en/ultrafineweb-en-part-0037-of-2048.parquet",
+      "bytes": 1300804084,
+      "sha256": "b316e36d917bf77eaae15db0c239fdd5f00fa545323377a8edc1b94f81e487e4"
+    },
+    {
+      "source_id": "ultradata_code_l2_py",
+      "dataset": "openbmb/UltraData-Code",
+      "revision": "85182d829f2ce7ea07cca72ebfc509deea1d9f5f",
+      "license": "project_card_apache_2_0_repo_rights_pending",
+      "path": "data/UltraData-Code-L2/py/UltraData-Code-L2-py-part-00017-of-00119.parquet",
+      "bytes": 1072336191,
+      "sha256": "3037672b375a0407a218f388f1e4b326ec23b8ecf442cbca677d1d5ee45dd30e"
+    },
+    {
+      "source_id": "ultradata_math_l2_preview",
+      "dataset": "openbmb/UltraData-Math",
+      "revision": "fe10db8efd35597fd7fcff8ff576b5ec4ea5ff87",
+      "license": "project_card_apache_2_0_source_rights_pending",
+      "path": "data/UltraData-Math-L2-preview/UltraData-Math-L2-part-00007-of-00138.parquet",
+      "bytes": 436080128,
+      "sha256": "115ba349d51b2eeb3691934a0f79c5b035683748cf4f8cbdda54d735331ba391"
+    }
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "version": 17,
+  "status": "DEPLOYED_ACTIVE_END_TO_END_TRIAL_NOT_SUSTAINED_SPEED_CERTIFICATION",
+  "updated_unix": 1791001545.2333136,
+  "active_pid": 206621,
+  "active_command": "/srv/small-agent/venvs/deepspec_gemma4/bin/python -u scripts/p0_inventory_supply_v17.py --config configs/curation/p0_full_inventory_supply_v11_r2.json --performance-config configs/curation/p0_end_to_end_v17.json ",
+  "worker_upgrade_active": true,
+  "benchmark_sha256": "9ce99f7e3d03725b5545e8e39d0753aad189deb1aa7f49f58e4566938c4b8745",
+  "pre_billing_ab_speedup": 1.6004954055521339,
+  "engineering_tests": 27,
+  "engineering_test_log_sha256": "550a81c2d412378ca87466ca925412148ca66eb7f75f2348b6d5fc2b673798c0",
+  "source_fast_lane_first": true,
+  "round_robin": true,
+  "fallback_every_ticks": 4,
+  "teacher_initial_after_pilot": 256,
+  "teacher_maximum": 2500,
+  "shared_budget_cny": 1000,
+  "quality_thresholds_changed": false,
+  "skip_hashes": false,
+  "parallel_ledger_writers": false,
+  "cpu_quota_enforced": false,
+  "system_level_cgroup_changed": false,
+  "stock_rows_changed_by_benchmark": false,
+  "api_requests_by_benchmark": 0,
+  "files_sha256": {
+    "/srv/small-agent/datasets/small-agent-p0/curation_v4/code/scripts/p0_inventory_supply_v17.py": "db51ca8f7eb9e54b68e18fab105daf71b6c343057a4361cdccdd51ab7b946ed6",
+    "/srv/small-agent/datasets/small-agent-p0/curation_v4/code/scripts/p0_release_inventory_batch_v17.py": "13f90a9d7b55e493241b6e61d41c1b3b15bd7c872e918e85551cacffed03566d",
+    "/srv/small-agent/datasets/small-agent-p0/curation_v4/code/scripts/p0_benchmark_pre_billing_v17.py": "646bf164cea7d190db8ee682d2653b8480bc07fff0d6dc4c34d046566c827146",
+    "/srv/small-agent/datasets/small-agent-p0/curation_v4/code/tests/test_end_to_end_v17.py": "158738ddc96597afa07f966554a8ae03d23d2ce42d2b81bd65bddbb8565a0233",
+    "/srv/small-agent/datasets/small-agent-p0/curation_v4/code/configs/curation/p0_end_to_end_v17.json": "35c726366825529398d177b861498706c60b86b7f9c94991f2d660d84ea0ec39",
+    "/srv/small-agent/datasets/small-agent-p0/curation_v4/code/configs/curation/p0_full_inventory_supply_v11_r2.json": "1e43c36593d200417a5f051d20f35fe3dc06b3593f8713d7e7315130b9277d56",
+    "/srv/small-agent/datasets/small-agent-p0/curation_v4/code/configs/curation/p0_release_gates_v5.json": "735ad6a26097a3ccebabf49653792e3543ae54afc9b6c3caa6d20e788a136043",
+    "/srv/small-agent/datasets/small-agent-p0/curation_v4/code/scripts/p0_inventory_supply_v15.py": "39ddec8a47074792cc40fb163658e042592cd73bf19d21dabb2656dabfb77e89",
+    "/srv/small-agent/datasets/small-agent-p0/curation_v4/code/scripts/p0_release_inventory_batch_v15.py": "e2f58c4a8448ba41dda31a17e25a889c0f2a5e2e528293c6fbad59644e5c6035",
+    "/home/user/.config/systemd/user/curation_full_inventory_supply_v11.service.d/parallel-v17.conf": "f706bb11c84ba1d90cdaa7813551187f62701deb55ed47977cca1941147c1a3a"
+  },
+  "baseline_ledger": {
+    "recipe_sha256": "ae038bebab6cb9c35b019e04b982118b2d86a98ff67c98d5989e8bf19f8f7b70",
+    "unique_ready_train_body_tokens": 539977539,
+    "ready_by_domain": {
+      "general_en": 0,
+      "general_zh": 0,
+      "technical": 24227562,
+      "code": 515749977,
+      "math": 0
+    },
+    "legacy_internal_train_body_tokens": 1039431495,
+    "legacy_internal_by_domain": {
+      "general_en": 824688270,
+      "general_zh": 210701974,
+      "technical": 0,
+      "code": 3443535,
+      "math": 597716
+    },
+    "accounted_unique_train_body_tokens": 1579409034,
+    "accounted_by_domain": {
+      "general_en": 824688270,
+      "general_zh": 210701974,
+      "technical": 24227562,
+      "code": 519193512,
+      "math": 597716
+    },
+    "remaining_by_domain": {
+      "general_en": 6175311730,
+      "general_zh": 4789298026,
+      "technical": 1975772438,
+      "code": 3480806488,
+      "math": 1999402284
+    },
+    "legacy_imports": 1,
+    "legacy_quality_scope": "inherited_internal_only_not_new_v4_certification",
+    "target_met": false,
+    "batch_statuses": {
+      "legacy_internal": 1,
+      "quarantined": 3,
+      "ready": 51,
+      "waiting_gate": 1
+    },
+    "candidates_counted_as_ready": false,
+    "training_started": false,
+    "all_stock_cleaning_not_stopped_by_goal_quota": true,
+    "recipe_admitted_train_body_tokens": 1579409034,
+    "reserve_by_domain": {
+      "general_en": 0,
+      "general_zh": 0,
+      "technical": 0,
+      "code": 0,
+      "math": 0
+    },
+    "balanced_training_manifest_frozen": false,
+    "recipe_credit_scope": "per-domain goal credit cap; not a newly frozen balanced 20B training manifest"
+  },
+  "queue_status": {
+    "cohort": "swallow_math_v2_textbook/math/en",
+    "maximum_concurrency": 2500,
+    "mode": "source_audit",
+    "shared_budget_cny": 1000,
+    "stage": "BINDING_INTERNAL_SOURCE_TERMS",
+    "training_started": false,
+    "version": 17
+  },
+  "timer_active": "active"
+}

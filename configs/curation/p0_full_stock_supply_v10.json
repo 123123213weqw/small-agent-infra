@@ -1,0 +1,57 @@
+{
+  "version": 10,
+  "stock": "/srv/small-agent/datasets/small-agent-p0/curation_v4/full_stock_v9",
+  "original_stock": "/srv/small-agent/datasets/small-agent-p0/curation_v4/stock_117b_v6",
+  "filter_config": "/srv/small-agent/datasets/small-agent-p0/curation_v4/code/configs/curation/p0_full_stock_filter_v9.json",
+  "recipe": "/srv/small-agent/datasets/small-agent-p0/curation_v4/code/configs/curation/base_1b_supply_20b_v4.json",
+  "database": "/srv/small-agent/datasets/small-agent-p0/curation_v4/state/supply_20b_v4.sqlite",
+  "profile": "/home/user/.config/small-agent/curation-deepseek-v4.json",
+  "quality_reference": "/srv/small-agent/datasets/small-agent-p0/curation_v4/references/math_quality_v8_r5",
+  "baseline_source_plan": "/srv/small-agent/datasets/small-agent-p0/curation_v4/source_audits/math_calibration_20261002_v6_r3/SAMPLE_PLAN.json",
+  "excluded_cohort_files": [
+    "/srv/small-agent/datasets/small-agent-p0/curation_v4/source_audits/math_calibration_20261002_v6_r3/selection.jsonl",
+    "/srv/small-agent/datasets/small-agent-p0/curation_v4/source_audits/math_clean_calibration_20261002_v8_r5/selection.jsonl",
+    "/srv/small-agent/datasets/small-agent-p0/curation_v4/references/math_quality_v8_r5/input.jsonl"
+  ],
+  "policy": "/srv/small-agent/datasets/small-agent-p0/curation_v4/code/configs/curation/p0_release_gates_v5.json",
+  "tokenizer": "/srv/small-agent/datasets/small-agent-p0/p0_1m_smoke_v1/tokenizer_v1/tokenizer.json",
+  "tokenizer_sha256": "9d0b99ab9cf20d337217c96a5b39e9ff87590eb462abcbcc8f1119c3d43911a7",
+  "source_sampling_seed": 2026100209,
+  "source_terms": "/srv/small-agent/datasets/small-agent-p0/curation_v4/references/finemath_terms_v6/SOURCE_TERMS.json",
+  "inventory_root": "/srv/small-agent/datasets/small-agent-p0/curation_v4/references/disk_index_v6",
+  "sketch_root": "/srv/small-agent/datasets/small-agent-p0/curation_v4/references/global_index_v5",
+  "legacy_receipt": "/srv/small-agent/datasets/small-agent-p0/curation_v4/legacy_inventory_20261002_v1/receipt.json",
+  "eval_registry": "/srv/small-agent/datasets/small-agent-p0/curation_v4/references/eval_v5/registry.json",
+  "release_root": "/srv/small-agent/datasets/small-agent-p0/curation_v4/release_batches_math_v9",
+  "batch_train_body_tokens": 30000000,
+  "maximum_batches_per_tick": 4,
+  "maximum_unreleased_batches": 2,
+  "minimum_disk_free_bytes": 200000000000,
+  "shared_campaign_budget_cny": 1000,
+  "maximum_concurrency": 2500,
+  "auto_training": false,
+  "distribution_eligible": false,
+  "replenishment_preferences": {
+    "general_en": [
+      "reuse_frozen_existing_shards_before_new_download",
+      "fill_only_remaining_goal_gap_after_existing_internal_legacy_credit"
+    ],
+    "general_zh": [
+      "non_encyclopedia_Chinese_first",
+      "credit_existing_internal_210701974_tokens_without_new_READY_relabel"
+    ],
+    "technical": [
+      "technical_documentation_explanatory_text_with_bound_source_terms"
+    ],
+    "code": [
+      "permissively_licensed_multi_language_code",
+      "independent_language_reference_before_release"
+    ],
+    "math": [
+      "existing_FineMath_all_host_rule_tiers",
+      "cap_training_admission_at_2B_reserve_oversupply"
+    ]
+  },
+  "goal_credit_policy": "inherited_internal_plus_new_READY",
+  "legacy_goal_credit_receipt": "/srv/small-agent/datasets/small-agent-p0/curation_v4/full_stock_v9/LEGACY_GOAL_CREDIT_V10.json"
+}

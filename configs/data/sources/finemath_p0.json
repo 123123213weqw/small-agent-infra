@@ -1,0 +1,14 @@
+{
+  "adapter_version": "p0_source_adapter_v1",
+  "source_id": "finemath",
+  "dataset": "HuggingFaceTB/finemath",
+  "revision": "e92b25a616738fe95dc186b64dfb19f9c8525594",
+  "subset": "finemath-3plus",
+  "domain": "math_en",
+  "language": "en",
+  "license_status": "approved",
+  "text_field": "text",
+  "locator_fields": ["id", "url"],
+  "family_fields": ["url"],
+  "metadata_fields": ["url", "language", "score", "metadata"]
+}

@@ -1,0 +1,14 @@
+[Unit]
+Description=Small-agent v5 measured internal token release queue
+After=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/srv/small-agent/datasets/small-agent-p0/curation_v4/code
+ExecStart=/srv/small-agent/venvs/deepspec_gemma4/bin/python scripts/p0_release_queue_v5.py --queue /srv/small-agent/datasets/small-agent-p0/curation_v4/release_queue_v5 --profile /home/user/.config/small-agent/curation-deepseek-v4.json --release-root /srv/small-agent/datasets/small-agent-p0/curation_v4/releases --database /srv/small-agent/datasets/small-agent-p0/curation_v4/state/supply_20b_v4.sqlite --tokenizer /srv/small-agent/datasets/small-agent-p0/p0_1m_smoke_v1/tokenizer_v1/tokenizer.json --legacy-receipt /srv/small-agent/datasets/small-agent-p0/curation_v4/legacy_inventory_20261002_v1/receipt.json --inventory-root /srv/small-agent/datasets/small-agent-p0/curation_v4/references/global_index_v5 --eval-registry /srv/small-agent/datasets/small-agent-p0/curation_v4/references/eval_v5/registry.json --quality-reference /srv/small-agent/datasets/small-agent-p0/curation_v4/references/python_quality_v5 --allow-api
+Environment=CUDA_VISIBLE_DEVICES=
+Environment=OMP_NUM_THREADS=1
+CPUQuota=300%
+MemoryMax=6G
+Nice=15
+TimeoutStartSec=infinity

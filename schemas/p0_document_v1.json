@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "p0_document_v1",
+  "type": "object",
+  "required": [
+    "document_id",
+    "source_id",
+    "source_revision",
+    "source_locator",
+    "family_id",
+    "domain",
+    "language",
+    "text",
+    "raw_sha256",
+    "normalized_sha256",
+    "license_status",
+    "pipeline_version",
+    "split",
+    "rule_keep",
+    "rule_reason_codes"
+  ],
+  "properties": {
+    "document_id": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "source_id": {"type": "string", "minLength": 1},
+    "source_revision": {"type": "string", "minLength": 1},
+    "source_locator": {"type": "string", "minLength": 1},
+    "family_id": {"type": "string", "minLength": 1},
+    "domain": {"type": "string", "minLength": 1},
+    "language": {"type": "string", "minLength": 1},
+    "text": {"type": "string", "minLength": 1},
+    "raw_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "normalized_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "license_status": {"enum": ["pending", "approved", "rejected"]},
+    "pipeline_version": {"type": "string", "minLength": 1},
+    "split": {"enum": ["train", "validation", "test"]},
+    "rule_keep": {"type": "boolean"},
+    "rule_reason_codes": {"type": "array", "items": {"type": "string"}},
+    "source_metadata_json": {"type": "string"}
+  },
+  "additionalProperties": false
+}

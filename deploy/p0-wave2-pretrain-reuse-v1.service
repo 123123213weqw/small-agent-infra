@@ -1,0 +1,20 @@
+[Unit]
+Description=Wave2 CPU-only pretraining reuse freeze pack and verification
+
+[Service]
+Type=oneshot
+WorkingDirectory=/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pretrain_reuse_wave2_v1/code
+Environment=PYTHONUNBUFFERED=1
+Environment=RAYON_NUM_THREADS=8
+Environment=TOKENIZERS_PARALLELISM=true
+Environment=OMP_NUM_THREADS=1
+Environment=MKL_NUM_THREADS=1
+Environment=CUDA_VISIBLE_DEVICES=
+ExecStart=/home/user/anaconda3/bin/python scripts/p0_pipeline.py run --config /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pretrain_reuse_wave2_v1/pipeline.json --state /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pretrain_reuse_wave2_v1/state.json
+StandardOutput=append:/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pretrain_reuse_wave2_v1/reports/pipeline.log
+StandardError=append:/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pretrain_reuse_wave2_v1/reports/pipeline.log
+CPUQuota=800%
+MemoryMax=24G
+Nice=10
+TimeoutStartSec=12h
+Restart=no

@@ -1,0 +1,16 @@
+[Unit]
+Description=P0 FineWeb-Edu wave2 deterministic candidate prefilter (not training approval)
+
+[Service]
+Type=simple
+WorkingDirectory=/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/fineweb_edu_wave2_v1/code
+ExecStart=/home/user/venvs/v100-active/bin/python -u /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/fineweb_edu_wave2_v1/code/p0_prefilter_fineweb_edu_wave2.py --root /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/fineweb_edu_wave2_v1 --tokenizer-json /srv/small-agent/datasets/small-agent-p0/p0_1m_smoke_v1/tokenizer_v1/tokenizer.json --old-candidate-index /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/upstream_nonwiki_v1/audit/prefilter_v1/fineweb_edu_new.candidate_index.parquet --old-wave1-index /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/wave1_consolidated_100m_v1/unified_index.parquet --wait-timeout 86400
+Restart=on-failure
+RestartSec=60
+Nice=10
+CPUQuota=400%
+MemoryMax=24G
+NoNewPrivileges=yes
+
+[Install]
+WantedBy=default.target

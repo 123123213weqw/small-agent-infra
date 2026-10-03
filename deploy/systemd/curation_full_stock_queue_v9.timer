@@ -1,0 +1,11 @@
+[Unit]
+Description=Continue all-stock curation with source, quota, cost and disk gates
+
+[Timer]
+OnBootSec=5min
+OnUnitInactiveSec=1min
+Persistent=true
+Unit=curation_full_stock_queue_v9.service
+
+[Install]
+WantedBy=timers.target

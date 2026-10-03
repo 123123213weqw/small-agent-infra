@@ -1,0 +1,27 @@
+{
+  "version": 3,
+  "minimum_confidence": 0.85,
+  "minimum_scores": {
+    "quality": 3,
+    "completeness": 4,
+    "educational_value": 3,
+    "format_integrity": 4
+  },
+  "review_mode": "full_document_only",
+  "routing_rule": "agree_or_language_general_technical_fallback",
+  "require_independent_model_families": true,
+  "unresolved_risk": "quarantine",
+  "auto_training": false,
+  "required_release_checks": [
+    "source_provenance",
+    "license_internal",
+    "exact_and_near_dedup",
+    "split_isolation",
+    "eval_contamination_scoped",
+    "independent_calibration"
+  ],
+  "calibration_reference_is_required": true,
+  "interpretation": "Conservative project policy, not an industry accuracy standard. Classification is separate from quality.",
+  "maximum_batch_documents": 2000,
+  "maximum_batch_body_bytes": 67108864
+}

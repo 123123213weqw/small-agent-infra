@@ -1,0 +1,8 @@
+{
+  "version": 15,
+  "release_cpu_workers": 8,
+  "quality_thresholds_changed": false,
+  "skip_hashes": false,
+  "parallel_ledger_writers": false,
+  "maximum_prefetch_chunks_per_worker": 2
+}

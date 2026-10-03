@@ -1,0 +1,17 @@
+{
+  "version": "finewiki_zh_2025_candidate_v1",
+  "status": "audit_only_not_training_approved",
+  "dataset": "HuggingFaceFW/finewiki",
+  "revision": "8bd13e72e6a002407649b3e898535f42ceb1aeb9",
+  "subset": "zh",
+  "source_snapshot": "2025-08",
+  "license_status": "pending",
+  "license_card": "cc-by-sa-4.0,gfdl",
+  "files": [
+    {"path": "data/zhwiki/000_00000.parquet", "bytes": 1123907584, "sha256": "1a6491655fe99f4e28a495a4e1fa1a9f5e230a38f0d7e56673b52ba415399465"},
+    {"path": "data/zhwiki/000_00001.parquet", "bytes": 1074065833, "sha256": "c2756bf26e881c25dba146cf56cf632a50087e66dae7c6ad10ae748256c4f579"},
+    {"path": "data/zhwiki/000_00002.parquet", "bytes": 1117684790, "sha256": "cfe95f4a23229e6d1e52f6bcdd1bc79b8b95df3496177e0b84c78b1ff3740947"},
+    {"path": "data/zhwiki/000_00003.parquet", "bytes": 1104988793, "sha256": "4249876b56a5e50a15e25c4342fbee3592d8942f8470a37fdd13d7a132c92770"},
+    {"path": "data/zhwiki/000_00004.parquet", "bytes": 1105884060, "sha256": "27956c962cb59d160fbec9f874d108da66c8d935af8a4934b56e60606265ada3"}
+  ]
+}

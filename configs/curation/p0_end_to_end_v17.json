@@ -1,0 +1,12 @@
+{
+  "version": 17,
+  "release_cpu_workers": 16,
+  "pre_billing_cpu_workers": 16,
+  "initial_teacher_concurrency": 256,
+  "fallback_every_ticks": 4,
+  "quality_thresholds_changed": false,
+  "skip_hashes": false,
+  "parallel_ledger_writers": false,
+  "maximum_prefetch_chunks_per_worker": 2,
+  "scheduling": "fair_source_audit_pass_all_complete_cohorts_before_bounded_individual_fallback"
+}

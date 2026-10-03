@@ -1,0 +1,72 @@
+{
+  "version": "fusion4_confirm_benchmark_v1",
+  "gpu_indices": [
+    0,
+    1,
+    5,
+    6
+  ],
+  "world_size": 4,
+  "global_batch": 32,
+  "sequence_length": 2048,
+  "warmup_steps": 10,
+  "measurement_steps": 30,
+  "profile_steps": 2,
+  "validation_samples": 128,
+  "maximum_validation_loss_difference": 0.01,
+  "seed": 20261002,
+  "fixed_learning_rate": 2e-05,
+  "baseline_id": "torch_full",
+  "variants": [
+    {
+      "id": "torch_full",
+      "fuse_norm": false,
+      "fuse_swiglu": false,
+      "micro_batch": 4,
+      "accumulation": 2,
+      "bucket_mib": 25,
+      "communication": "bf16",
+      "checkpointing": "full",
+      "loss_backend": "torch"
+    },
+    {
+      "id": "rmsnorm_only",
+      "fuse_norm": true,
+      "fuse_swiglu": false,
+      "micro_batch": 4,
+      "accumulation": 2,
+      "bucket_mib": 25,
+      "communication": "bf16",
+      "checkpointing": "full",
+      "loss_backend": "torch"
+    },
+    {
+      "id": "norm_swi",
+      "fuse_norm": true,
+      "fuse_swiglu": true,
+      "micro_batch": 4,
+      "accumulation": 2,
+      "bucket_mib": 25,
+      "communication": "bf16",
+      "checkpointing": "full",
+      "loss_backend": "torch"
+    },
+    {
+      "id": "torch_full_repeat",
+      "fuse_norm": false,
+      "fuse_swiglu": false,
+      "micro_batch": 4,
+      "accumulation": 2,
+      "bucket_mib": 25,
+      "communication": "bf16",
+      "checkpointing": "full",
+      "loss_backend": "torch"
+    }
+  ],
+  "gradient_check": {
+    "maximum_relative_l2": 0.02,
+    "minimum_cosine": 0.999,
+    "maximum_loss_difference": 0.01
+  },
+  "phase": "confirmation_after_external_contention"
+}

@@ -1,0 +1,118 @@
+{
+  "version": 5,
+  "observed_utc": "2026-10-02T09:30:13.263333+00:00",
+  "stage": "scoped_python_ready_training_input_with_remaining_queue",
+  "training_bundle": {
+    "body_tokens_by_split": {
+      "test": 74860,
+      "train": 8640099,
+      "validation": 104959
+    },
+    "catalog_sha256": "4d4ca71cc170a34f2907cbc9acade594157129eeeb30d7a92f7c4198f0bf3cad",
+    "context_length": 4096,
+    "data_dir": "/srv/small-agent/datasets/small-agent-p0/curation_v4/training_bundles_v5/be4051fd7ed4a2c6964cc40903503ebbbdcb0330153a6a21a1fe73df1be212e4",
+    "data_reader": "sharded_v1",
+    "distribution_eligible": false,
+    "documents": 9176,
+    "manifest_sha256": "cb29d36319fb114214a4e40153902d60d2a2c43c8bae3dade5db60a167a8b40a",
+    "mixture_block_size": 2111,
+    "model_environment_gpu_preflight_required_before_launch": true,
+    "scope": "only committed v5 READY; no legacy imports, raw candidates, or failed batches",
+    "status": "TRAINING_READY_INTERNAL",
+    "tokenizer_sha256": "9d0b99ab9cf20d337217c96a5b39e9ff87590eb462abcbcc8f1119c3d43911a7",
+    "train_body_tokens_by_domain": {
+      "code": 8640099
+    },
+    "trainer_binding": {
+      "context_length": 4096,
+      "data_dir": "/srv/small-agent/datasets/small-agent-p0/curation_v4/training_bundles_v5/be4051fd7ed4a2c6964cc40903503ebbbdcb0330153a6a21a1fe73df1be212e4",
+      "data_reader": "sharded_v1",
+      "mixture_block_size": 2111
+    },
+    "training_started": false,
+    "unique_train_body_tokens": 8640099,
+    "verify_sha256": "d85cbd79df7a42b5f193a89c18b15ca9277c17d47d132fc1d7c67e6c02005cc9"
+  },
+  "verification": {
+    "all_tokens_in_vocabulary": true,
+    "coverage": {
+      "test": {
+        "format": "sharded_v1",
+        "predicted_tokens": 74936,
+        "prediction_coverage": 1.0,
+        "samples": 20,
+        "sequence_length": 4096,
+        "shards": 2,
+        "split": "test",
+        "stream_tokens": 74938
+      },
+      "train": {
+        "format": "sharded_v1",
+        "predicted_tokens": 8644545,
+        "prediction_coverage": 0.9994742800747177,
+        "samples": 2111,
+        "sequence_length": 4096,
+        "shards": 2,
+        "split": "train",
+        "stream_tokens": 8649094
+      },
+      "validation": {
+        "format": "sharded_v1",
+        "predicted_tokens": 105060,
+        "prediction_coverage": 1.0,
+        "samples": 27,
+        "sequence_length": 4096,
+        "shards": 2,
+        "split": "validation",
+        "stream_tokens": 105062
+      }
+    },
+    "first_and_last_sample_per_shard_checked": true,
+    "physical_hashes_checked": true,
+    "status": "passed",
+    "two_rank_committed_sampler_recovery": true
+  },
+  "new_candidate_jobs": 4,
+  "new_candidate_body_tokens": {
+    "test": 296483,
+    "train": 33153637,
+    "validation": 354631
+  },
+  "queue_states": [
+    {
+      "job_sha256": "55cb6f131a7896490c28c5bf77590e1afea09fdf6c985862256565747a5030fc",
+      "new_ready_train_body_tokens": 7951976,
+      "output": "/srv/small-agent/datasets/small-agent-p0/curation_v4/releases/python_supply_2a332819f1d095648ec8_v5",
+      "ready_receipt_sha256": "48b8c0ed5740c1816efa46efc549f3f7f9d3bcecbfbec9bea3b347cb2c5501fb",
+      "stage": "READY_INTERNAL",
+      "training_started": false
+    },
+    {
+      "component": "p0_release_code_batch_v5.py",
+      "job_sha256": "58d0602ed9d5a960dd719df4317016541258dcf755a55c9184d7f861688d70e2",
+      "output": "/srv/small-agent/datasets/small-agent-p0/curation_v4/releases/python_supply_47c044c0aff6bab7482e_v5",
+      "stage": "running",
+      "training_started": false
+    },
+    {
+      "job_sha256": "f7c61b0f6e9e61af7ddef725281fdd44766388bd5b8008972aa7a7d69b1d1848",
+      "new_ready_train_body_tokens": 688123,
+      "output": "/srv/small-agent/datasets/small-agent-p0/curation_v4/releases/code_10m_python_scoped_20261002_v5",
+      "ready_receipt_sha256": "42b1e2d86d52e31b05fbe48be6ae6188f79e7685b2ceb1a3aeea8bc476fcf91d",
+      "stage": "READY_INTERNAL",
+      "training_started": false
+    }
+  ],
+  "api_requests": 474,
+  "api_estimated_or_reserved_cny": 5.909698,
+  "api_inflight": 0,
+  "campaign_budget_cny": 1000,
+  "additional_engineering_tests_passed": 13,
+  "prior_queue_and_release_tests_passed": 8,
+  "live_producer_replay_jobs": 4,
+  "live_producer_replay_paid_calls": 0,
+  "raw_data_on_mac": false,
+  "training_started": false,
+  "all_domains_ready": false,
+  "scope": "Python short/medium; math source terms and other languages remain HOLD; no source-wide factual certification"
+}

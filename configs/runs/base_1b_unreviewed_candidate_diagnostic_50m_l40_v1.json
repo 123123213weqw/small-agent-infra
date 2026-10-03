@@ -1,0 +1,52 @@
+{
+  "version": "base_1b_unreviewed_candidate_diagnostic_50m_l40_v1",
+  "purpose": "internal_unreviewed_candidate_smoke_diagnostic_not_formal_pretraining",
+  "distributable": false,
+  "model_spec": "configs/model/base_1b_gdn_v1.json",
+  "data_reader": "sharded_v1",
+  "data_dir": "/srv/small-agent/experiments/small-agent-base-1b-v1-engineering/data/unreviewed_candidate_100m_sharded_v1",
+  "tokenizer_json": "/srv/small-agent/experiments/small-agent-base-1b-v1-engineering/data/tokenizer_v1/tokenizer.json",
+  "output_root": "/srv/small-agent/experiments/small-agent-base-1b-v1-engineering/runs",
+  "seed": 20260925,
+  "context_length": 4096,
+  "mixture_block_size": 1000,
+  "micro_batch_size": 1,
+  "gradient_accumulation_steps": 4,
+  "max_steps": 382,
+  "gradient_checkpointing": false,
+  "optimizer": {
+    "type": "adamw",
+    "maximum_learning_rate": 0.0002,
+    "minimum_learning_rate": 0.00002,
+    "betas": [0.9, 0.95],
+    "weight_decay": 0.1,
+    "gradient_clip": 1.0
+  },
+  "scheduler": {
+    "type": "warmup_cosine",
+    "warmup_tokens": 2000000,
+    "total_tokens": 50057280
+  },
+  "logging_interval_steps": 5,
+  "validation": {
+    "at_start": true,
+    "interval_steps": 76,
+    "batch_size": 1
+  },
+  "checkpoint": {
+    "interval_steps": 0,
+    "steps": [38, 153, 382],
+    "keep_full": 3
+  },
+  "profiler": {"enabled": false},
+  "distributed": {
+    "bucket_cap_mb": 25,
+    "communication_hook": "bf16"
+  },
+  "data_pipeline": {
+    "num_workers": 0,
+    "pin_memory": true,
+    "measure": true,
+    "trace_sample_refs": false
+  }
+}

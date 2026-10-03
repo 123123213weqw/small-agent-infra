@@ -1,0 +1,28 @@
+{
+  "name": "p0_l40_fast_env_v1",
+  "status": "validated_engineering_environment_not_production_benchmark",
+  "host": "GPU_NODE",
+  "gpu": "NVIDIA L40",
+  "root": "/srv/small-agent/experiments/small-agent-p0-gdn-hybrid-smoke-v1",
+  "base_python": "/opt/small-agent/venvs/small-agent-l40/bin/python",
+  "python": "3.10.12",
+  "packages": {
+    "torch": "2.5.1+cu121",
+    "transformers": "4.57.1",
+    "triton": "3.1.0",
+    "flash-linear-attention": "0.2.2",
+    "causal-conv1d": "1.5.0.post8",
+    "einops": "0.8.1",
+    "numpy": "2.2.6",
+    "typing_extensions": "4.16.0",
+    "tqdm": "4.70.1",
+    "packaging": "26.3",
+    "filelock": "3.32.7"
+  },
+  "causal_conv1d_wheel_sha256": "ec956a2d0fa48bd16a8dd5be9ad1c03db88565ea6ee2679e362940fef659284b",
+  "dependency_isolation": "runtime project packages installed with pip --target under root/deps, user site disabled, base venv unchanged",
+  "kernel_cache": "root/triton-cache",
+  "compute_dtype": "bfloat16",
+  "weights_initial_dtype": "float32",
+  "fused_gdn_norm": true
+}

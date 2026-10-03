@@ -1,0 +1,14 @@
+{
+  "adapter_version": "p0_source_adapter_v1",
+  "source_id": "fineweb2_zh",
+  "dataset": "HuggingFaceFW/fineweb-2",
+  "revision": "af9c13333eb981300149d5ca60a8e9d659b276b9",
+  "subset": "cmn_Hani",
+  "domain": "general_zh",
+  "language": "zh",
+  "license_status": "approved",
+  "text_field": "text",
+  "locator_fields": ["id", "url"],
+  "family_fields": ["url"],
+  "metadata_fields": ["url", "date", "dump", "file_path", "language", "language_score", "language_script", "minhash_cluster_size", "top_langs"]
+}

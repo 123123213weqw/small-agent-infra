@@ -1,0 +1,89 @@
+{
+  "experimental_near_cache_enabled": false,
+  "ledger": {
+    "accounted_by_domain": {
+      "code": 362834593,
+      "general_en": 824688270,
+      "general_zh": 210701974,
+      "math": 597716,
+      "technical": 24227562
+    },
+    "accounted_unique_train_body_tokens": 1423050115,
+    "all_stock_cleaning_not_stopped_by_goal_quota": true,
+    "balanced_training_manifest_frozen": false,
+    "batch_statuses": {
+      "legacy_internal": 1,
+      "quarantined": 3,
+      "ready": 36,
+      "waiting_gate": 1
+    },
+    "candidates_counted_as_ready": false,
+    "legacy_imports": 1,
+    "legacy_internal_by_domain": {
+      "code": 3443535,
+      "general_en": 824688270,
+      "general_zh": 210701974,
+      "math": 597716,
+      "technical": 0
+    },
+    "legacy_internal_train_body_tokens": 1039431495,
+    "legacy_quality_scope": "inherited_internal_only_not_new_v4_certification",
+    "ready_by_domain": {
+      "code": 359391058,
+      "general_en": 0,
+      "general_zh": 0,
+      "math": 0,
+      "technical": 24227562
+    },
+    "recipe_admitted_train_body_tokens": 1423050115,
+    "recipe_credit_scope": "per-domain goal credit cap; not a newly frozen balanced 20B training manifest",
+    "recipe_sha256": "ae038bebab6cb9c35b019e04b982118b2d86a98ff67c98d5989e8bf19f8f7b70",
+    "remaining_by_domain": {
+      "code": 3637165407,
+      "general_en": 6175311730,
+      "general_zh": 4789298026,
+      "math": 1999402284,
+      "technical": 1975772438
+    },
+    "reserve_by_domain": {
+      "code": 0,
+      "general_en": 0,
+      "general_zh": 0,
+      "math": 0,
+      "technical": 0
+    },
+    "target_met": false,
+    "training_started": false,
+    "unique_ready_train_body_tokens": 383618620
+  },
+  "legacy_batch_completed_without_migration": true,
+  "parallel_release_workers": 8,
+  "quality_thresholds_changed": false,
+  "queue_progress": {
+    "documents": 19968,
+    "job": "batch_3442d32081bcd5abf1c65e5e",
+    "phase": "candidate_original_read",
+    "updated_unix": 1790989219.4748175,
+    "version": 15
+  },
+  "queue_status": {
+    "cohort": "github_code_clean_supply_v4/code/java",
+    "maximum_concurrency": 2500,
+    "mode": "source_audit",
+    "shared_budget_cny": 1000,
+    "smoke": false,
+    "stage": "PROCESSING_FULL_STOCK_BATCH",
+    "training_started": false,
+    "version": 11
+  },
+  "source_sha256": {
+    "configs/curation/p0_parallel_release_v15.json": "3c8f0003ee74609e81115e982521404c9d68396921e5fa2f6eb20d2d2f270106",
+    "scripts/p0_arrow_reader_v15.py": "67fef013155e42d751f8308de0f156f776c6b8d452474ee54d80a998f4556b27",
+    "scripts/p0_inventory_supply_v15.py": "39ddec8a47074792cc40fb163658e042592cd73bf19d21dabb2656dabfb77e89",
+    "scripts/p0_migrate_release_v15.py": "bcae0b7838a18cb96f36647778bab003e00a24bfcd479d5f7c1d73d59273f340",
+    "scripts/p0_prepare_queue_indexes_v15.py": "2cdc91f2a335708d12d6eccb215956bbb56a572340348f428a4bd176d9e0d527",
+    "scripts/p0_release_inventory_batch_v15.py": "e2f58c4a8448ba41dda31a17e25a889c0f2a5e2e528293c6fbad59644e5c6035"
+  },
+  "stage": "LIVE_QUEUE_CPU_V15_DEPLOYED",
+  "tests_passed": 23
+}

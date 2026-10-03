@@ -1,0 +1,38 @@
+{
+  "version": "candidate_token_census_v4_20261002_1",
+  "stage": "unique_candidate_body_token_census_not_training_approval",
+  "tokenizer_sha256": "9d0b99ab9cf20d337217c96a5b39e9ff87590eb462abcbcc8f1119c3d43911a7",
+  "vocab_size": 32768,
+  "eos_token_id": 2,
+  "batch_size": 128,
+  "tokenizer_threads": 4,
+  "max_chars": 1000000,
+  "split_seed": 20261002,
+  "minimum_disk_free_bytes": 200000000000,
+  "full_roundtrip": false,
+  "reserved_tokens": [
+    "<pad>",
+    "<bos>",
+    "<eos>",
+    "<unk>",
+    "<|system|>",
+    "<|user|>",
+    "<|assistant|>",
+    "<|tool|>",
+    "<|tool_result|>",
+    "<|end|>",
+    "<|fim_prefix|>",
+    "<|fim_middle|>",
+    "<|fim_suffix|>",
+    "<|memory|>",
+    "<|memory_end|>"
+  ],
+  "source_policies": {
+    "finemath_4plus_supply_v4": "ODC-By dataset card; original content/source terms unresolved; count held candidates, not approval",
+    "github_code_clean_supply_v4": "per-record exact license whitelist classified; non-whitelisted separately held; provenance/quality/release gates pending"
+  },
+  "no_paid_api": true,
+  "no_gpu": true,
+  "auto_training": false,
+  "auto_publish": false
+}

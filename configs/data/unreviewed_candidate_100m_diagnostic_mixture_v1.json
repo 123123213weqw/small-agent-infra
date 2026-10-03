@@ -1,0 +1,8 @@
+{
+  "general_zh": 0.40,
+  "general_en": 0.30,
+  "math_en": 0.20,
+  "code_python": 0.05,
+  "code_shell": 0.005,
+  "code_other": 0.045
+}

@@ -1,0 +1,49 @@
+{
+  "version": 13,
+  "root": "/srv/small-agent/datasets/small-agent-p0/curation_v4/full_inventory_v11",
+  "database": "/srv/small-agent/datasets/small-agent-p0/curation_v4/state/supply_20b_v4.sqlite",
+  "tokenizer": "/srv/small-agent/datasets/small-agent-p0/p0_1m_smoke_v1/tokenizer_v1/tokenizer.json",
+  "tokenizer_sha256": "9d0b99ab9cf20d337217c96a5b39e9ff87590eb462abcbcc8f1119c3d43911a7",
+  "reserved_tokens": [
+    "<pad>",
+    "<bos>",
+    "<eos>",
+    "<unk>",
+    "<|system|>",
+    "<|user|>",
+    "<|assistant|>",
+    "<|tool|>",
+    "<|tool_result|>",
+    "<|end|>",
+    "<|fim_prefix|>",
+    "<|fim_middle|>",
+    "<|fim_suffix|>",
+    "<|memory|>",
+    "<|memory_end|>"
+  ],
+  "distributed_root": "/srv/small-agent/datasets/small-agent-p0/curation_v4/full_inventory_v11/distributed_v12",
+  "range_rows": 32768,
+  "remote_free_floor_bytes": 10000000000,
+  "nodes": [
+    {
+      "id": "primary_v100",
+      "root": "/srv/small-agent/datasets/small-agent-p0/curation_v4/full_inventory_v11/distributed_v12/node_primary",
+      "python": "/srv/small-agent/venvs/deepspec_gemma4/bin/python",
+      "workers": 4
+    },
+    {
+      "id": "external_v100",
+      "ssh": "v100_222",
+      "root": "/home/user/codex-work/small-agent-data-v12",
+      "python": "/home/user/siphon-rwkv7/bin/python",
+      "workers": 12
+    },
+    {
+      "id": "l40_cpu",
+      "ssh": "L40_Data_Pipeline",
+      "root": "/srv/small-agent/datasets/small-agent-p0/distributed_v12",
+      "python": "/opt/small-agent/venvs/small-agent-l40/bin/python",
+      "workers": 12
+    }
+  ]
+}

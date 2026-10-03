@@ -1,0 +1,10 @@
+[Unit]
+Description=Process newly enqueued frozen curation batches
+
+[Timer]
+OnBootSec=2min
+OnUnitInactiveSec=1min
+Unit=curation_release_queue_v5.service
+
+[Install]
+WantedBy=timers.target

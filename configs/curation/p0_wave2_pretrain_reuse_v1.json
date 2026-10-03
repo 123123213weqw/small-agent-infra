@@ -1,0 +1,36 @@
+{
+  "version": "wave2_pretrain_reuse_v1",
+  "purpose": "internal_pretraining_experiment_not_per_document_fact_certification",
+  "authorization": "User requested reuse after accepting finite pretraining noise; no training launch authorized here.",
+  "source_dataset": "HuggingFaceFW/fineweb-edu",
+  "source_revision": "87f09149ef4734204d70ed1d046ddc9ca3f2b8f9",
+  "source_license_label": "odc-by",
+  "tokenizer_sha256": "9d0b99ab9cf20d337217c96a5b39e9ff87590eb462abcbcc8f1119c3d43911a7",
+  "expected_candidate_documents": 822482,
+  "expected_candidate_text_tokens": 842429108,
+  "domain": "wave2_general_en",
+  "split_seed": 20261001,
+  "train_fraction": 0.98,
+  "validation_fraction": 0.01,
+  "hard_filter": {
+    "min_chars": 200,
+    "max_replacement_fraction": 0.01,
+    "reject_nul": true,
+    "reject_reserved_token_literals": true
+  },
+  "require_unanimous_dual_judgment": false,
+  "new_model_calls": false,
+  "rescue_previously_rejected_records": false,
+  "modify_document_text": false,
+  "distribution_eligible": false,
+  "notes": [
+    "Reuse only the existing 822482 selected full-document candidates; preserve all original judgments and failed strict gates.",
+    "Occasional factual mistakes, isolated promotional sentences and compatible bucket differences are not new automatic vetoes.",
+    "Scores and agreement are selection evidence, not factual accuracy estimates.",
+    "All new records belonging to a prior approved URL family are excluded to protect prior held-out splits.",
+    "Inherited near-dedup covers Wave2 and old Wave1 reference; no claim of exhaustive near-dedup against FineWiki.",
+    "Inherited benchmark screening covers exact phrases from ARC-Easy and HellaSwag only.",
+    "Dataset-level license reuse follows prior internal FineWeb usage; individual webpage rights are not certified.",
+    "Packed output is for internal experiments only; training and publishing are separate actions."
+  ]
+}

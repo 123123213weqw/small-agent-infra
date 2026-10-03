@@ -1,0 +1,14 @@
+[Unit]
+Description=FineMath v6 internal source terms and independent arithmetic calibration
+After=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/srv/small-agent/datasets/small-agent-p0/curation_v4/code
+ExecStart=/bin/bash scripts/p0_math_onboarding_v6.sh
+Environment=CUDA_VISIBLE_DEVICES=
+Environment=OMP_NUM_THREADS=1
+CPUQuota=400%
+MemoryMax=8G
+Nice=15
+TimeoutStartSec=infinity

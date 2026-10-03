@@ -1,0 +1,22 @@
+{
+  "version": "microbatch_benchmark_v1",
+  "world_size": 8,
+  "global_batch": 32,
+  "sequence_length": 2048,
+  "warmup_steps": 10,
+  "measurement_steps": 30,
+  "profile_steps": 2,
+  "seed": 20261002,
+  "fixed_learning_rate": 0.00002,
+  "variants": [
+    {"id": "micro1_acc4", "micro_batch": 1, "accumulation": 4},
+    {"id": "micro2_acc2", "micro_batch": 2, "accumulation": 2},
+    {"id": "micro4_acc1", "micro_batch": 4, "accumulation": 1}
+  ],
+  "gradient_check": {
+    "maximum_relative_l2": 0.02,
+    "minimum_cosine": 0.999,
+    "maximum_loss_difference": 0.01,
+    "note": "Project diagnostic tolerances for BF16 computation, not bitwise equivalence."
+  }
+}

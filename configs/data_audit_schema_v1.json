@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["decision", "quality", "issues", "reason"],
+  "additionalProperties": false,
+  "properties": {
+    "decision": {"type": "string", "enum": ["保留", "待复核", "剔除"]},
+    "quality": {"type": "string", "enum": ["高", "中", "低"]},
+    "issues": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "enum": ["广告或SEO", "模板化或重复", "乱码或格式损坏", "信息量不足", "事实或推导错误", "隐私或版权风险", "其他"]
+      }
+    },
+    "reason": {"type": "string", "minLength": 3, "maxLength": 200}
+  }
+}

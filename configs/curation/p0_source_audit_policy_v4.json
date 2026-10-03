@@ -1,0 +1,29 @@
+{
+  "version": 3,
+  "minimum_confidence": 0.85,
+  "minimum_scores": {
+    "quality": 3,
+    "completeness": 1,
+    "educational_value": 1,
+    "format_integrity": 3
+  },
+  "review_mode": "full_document_only",
+  "routing_rule": "agree_or_language_general_technical_fallback",
+  "require_independent_model_families": false,
+  "unresolved_risk": "quarantine",
+  "auto_training": false,
+  "required_release_checks": [
+    "source_provenance",
+    "license_internal",
+    "exact_and_near_dedup",
+    "split_isolation",
+    "eval_contamination_scoped",
+    "independent_calibration"
+  ],
+  "calibration_reference_is_required": true,
+  "interpretation": "Single teacher source-audit signals, never independent factual certification, per-document dual review, or corpus approval.",
+  "maximum_batch_documents": 128,
+  "maximum_batch_body_bytes": 16777216,
+  "review_purpose": "source_quality_audit",
+  "corpus_release_allowed": false
+}

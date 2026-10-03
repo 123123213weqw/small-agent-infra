@@ -1,0 +1,22 @@
+{
+  "version": "training_quality_v2",
+  "purpose": "training_quality_not_corpus_judging",
+  "seed": 20261002,
+  "precision": "original_checkpoint_dtypes_mostly_fp32_2304_gdn_norm_bf16_autocast_fp32_logsoftmax",
+  "context_length": 2048,
+  "fast_interval_steps": 500,
+  "ability_interval_steps": 2000,
+  "generation_every_checkpoint": true,
+  "force_uncached_generation": true,
+  "quick_max_samples_per_raw_domain": 128,
+  "pilot": {"multiple_choice_limit": 256, "gsm8k_limit": 64, "code_limit_per_dataset": 64},
+  "multiple_choice_fewshot": 0,
+  "gsm8k_fewshot": 5,
+  "gsm8k_max_gen_toks": 256,
+  "code_max_new_tokens": 256,
+  "exclude_evalplus_ids": ["HumanEval/78"],
+  "full_mode_removes_task_limits": true,
+  "code_sandbox": {"network": false, "wall_seconds_per_task": 90, "cpu_seconds": 60, "memory_bytes": 8589934592},
+  "optimized_training_adoption": "requires_separate_explicit_approval_after_paired_quality_gates",
+  "sources": ["https://github.com/EleutherAI/lm-evaluation-harness", "https://github.com/evalplus/evalplus"]
+}

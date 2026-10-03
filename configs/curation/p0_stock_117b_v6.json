@@ -1,0 +1,22 @@
+{
+  "version": 6,
+  "stock": "/srv/small-agent/datasets/small-agent-p0/curation_v4/stock_117b_v6",
+  "source_audit": "/srv/small-agent/datasets/small-agent-p0/curation_v4/source_audits/math_calibration_20261002_v6_r3",
+  "quality_reference": "/srv/small-agent/datasets/small-agent-p0/curation_v4/references/math_quality_v6_r3",
+  "profile": "/home/user/.config/small-agent/curation-deepseek-v4.json",
+  "inventory_root": "/srv/small-agent/datasets/small-agent-p0/curation_v4/references/disk_index_v6",
+  "sketch_root": "/srv/small-agent/datasets/small-agent-p0/curation_v4/references/global_index_v5",
+  "database": "/srv/small-agent/datasets/small-agent-p0/curation_v4/state/supply_20b_v4.sqlite",
+  "legacy_receipt": "/srv/small-agent/datasets/small-agent-p0/curation_v4/legacy_inventory_20261002_v1/receipt.json",
+  "release_root": "/srv/small-agent/datasets/small-agent-p0/curation_v4/release_batches_math_v6",
+  "tokenizer": "/srv/small-agent/datasets/small-agent-p0/p0_1m_smoke_v1/tokenizer_v1/tokenizer.json",
+  "eval_registry": "/srv/small-agent/datasets/small-agent-p0/curation_v4/references/eval_v5/registry.json",
+  "source_terms": "/srv/small-agent/datasets/small-agent-p0/curation_v4/references/finemath_terms_v6/SOURCE_TERMS.json",
+  "recipe": "/srv/small-agent/datasets/small-agent-p0/curation_v4/code/configs/curation/base_1b_supply_20b_v4.json",
+  "policy": "/srv/small-agent/datasets/small-agent-p0/curation_v4/code/configs/curation/p0_release_gates_v5.json",
+  "maximum_concurrency": 2500,
+  "shared_campaign_budget_cny": 1000,
+  "batch_train_body_tokens": 30000000,
+  "auto_training": false,
+  "distribution_eligible": false
+}

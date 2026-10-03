@@ -1,0 +1,58 @@
+{
+  "version": 3,
+  "deployment_status": "example_not_verified",
+  "judges": {
+    "qwen": {
+      "family": "qwen",
+      "model": "qwen-quality",
+      "model_revision": "REPLACE_WITH_VERIFIED_WEIGHT_MANIFEST_SHA256",
+      "served_models": [
+        "qwen-quality"
+      ],
+      "generation": {
+        "temperature": 0,
+        "thinking": "omit",
+        "response_format": "json_schema",
+        "max_tokens": 2048,
+        "require_document_id_match": true,
+        "chat_template_kwargs": {
+          "enable_thinking": false
+        }
+      },
+      "endpoint": {
+        "kind": "chat",
+        "base_url": "http://127.0.0.1:8000/v1",
+        "maximum_context_tokens": 16384,
+        "teacher_tokenizer_directory": "REPLACE_WITH_LOCAL_VERIFIED_PATH",
+        "teacher_tokenizer_files": {}
+      }
+    },
+    "deepseek": {
+      "family": "deepseek",
+      "model": "deepseek-flash",
+      "model_revision": "REPLACE_WITH_PROVIDER_MODEL_VERSION_AND_DATE",
+      "served_models": [
+        "deepseek-flash"
+      ],
+      "generation": {
+        "temperature": 0,
+        "thinking": "disabled",
+        "response_format": "json_schema",
+        "max_tokens": 2048,
+        "require_document_id_match": true,
+        "chat_template_kwargs": {}
+      },
+      "endpoint": {
+        "kind": "responses",
+        "base_url": "https://api.deepseek.com",
+        "maximum_input_tokens": 32768,
+        "key_env": "DEEPSEEK_API_KEY",
+        "pricing_cny_per_million": {
+          "uncached_input": "REPLACE_WITH_VERIFIED_UPPER_PRICE",
+          "output": "REPLACE_WITH_VERIFIED_UPPER_PRICE",
+          "margin": 1.15
+        }
+      }
+    }
+  }
+}

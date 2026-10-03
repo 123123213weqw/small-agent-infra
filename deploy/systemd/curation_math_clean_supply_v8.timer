@@ -1,0 +1,11 @@
+[Unit]
+Description=Resume bounded mathematical supply only after fresh calibration and index are ready
+
+[Timer]
+OnBootSec=3min
+OnUnitInactiveSec=10min
+Persistent=true
+Unit=curation_math_clean_supply_v8.service
+
+[Install]
+WantedBy=timers.target

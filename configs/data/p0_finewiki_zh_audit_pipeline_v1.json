@@ -1,0 +1,713 @@
+{
+  "version": 1,
+  "description": "FineWiki zh CPU-only audit; outputs remain training_eligible=false",
+  "source_revision": "8bd13e72e6a002407649b3e898535f42ceb1aeb9",
+  "paid_stages": 0,
+  "gpu_stages": 0,
+  "stages": [
+    {
+      "name": "raw_download",
+      "kind": "command",
+      "host": "CPU_NODE",
+      "command": "/srv/small-agent/venvs/deepspec_gemma4/bin/python /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/code/scripts/p0_fetch_finewiki_zh.py --spec /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/code/configs/finewiki_zh_2025_candidate_v1.json --root /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1 --endpoint https://hf-mirror.com --workers 3",
+      "inputs": [
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/code/scripts/p0_fetch_finewiki_zh.py"
+        },
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/code/scripts/p0_verify_finewiki_stage.py"
+        },
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/code/configs/finewiki_zh_2025_candidate_v1.json"
+        }
+      ],
+      "outputs": [
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/raw_manifest.json"
+        }
+      ],
+      "checks": [
+        {
+          "host": "CPU_NODE",
+          "command": "/srv/small-agent/venvs/deepspec_gemma4/bin/python /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/code/scripts/p0_verify_finewiki_stage.py --stage raw_download --root /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1 --reference-root /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/wave1_consolidated_100m_v1 --tokenizer /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/tokenizer_v1/tokenizer.json"
+        }
+      ]
+    },
+    {
+      "name": "rule_clean",
+      "kind": "command",
+      "host": "CPU_NODE",
+      "command": "/srv/small-agent/venvs/deepspec_gemma4/bin/python /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/code/scripts/p0_clean_finewiki_zh.py --spec /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/code/configs/finewiki_zh_2025_candidate_v1.json --root /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1 --batch-size 256",
+      "inputs": [
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/code/scripts/p0_clean_finewiki_zh.py"
+        },
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/code/scripts/p0_verify_finewiki_stage.py"
+        },
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/code/scripts/p0_data_pipeline.py"
+        },
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/code/configs/finewiki_zh_2025_candidate_v1.json"
+        },
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/raw_manifest.json"
+        }
+      ],
+      "outputs": [
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/clean_rule_v1/manifest.json"
+        }
+      ],
+      "checks": [
+        {
+          "host": "CPU_NODE",
+          "command": "/srv/small-agent/venvs/deepspec_gemma4/bin/python /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/code/scripts/p0_verify_finewiki_stage.py --stage rule_clean --root /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1 --reference-root /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/wave1_consolidated_100m_v1 --tokenizer /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/tokenizer_v1/tokenizer.json"
+        }
+      ]
+    },
+    {
+      "name": "token_count",
+      "kind": "command",
+      "host": "CPU_NODE",
+      "command": "/srv/small-agent/venvs/deepspec_gemma4/bin/python /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/code/scripts/p0_count_finewiki_tokens.py --root /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1 --tokenizer /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/tokenizer_v1/tokenizer.json",
+      "inputs": [
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/code/scripts/p0_count_finewiki_tokens.py"
+        },
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/code/scripts/p0_verify_finewiki_stage.py"
+        },
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/code/scripts/p0_data_pipeline.py"
+        },
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/clean_rule_v1/manifest.json"
+        },
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/tokenizer_v1/tokenizer.json"
+        }
+      ],
+      "outputs": [
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/clean_rule_v1/token_count_manifest.json"
+        }
+      ],
+      "checks": [
+        {
+          "host": "CPU_NODE",
+          "command": "/srv/small-agent/venvs/deepspec_gemma4/bin/python /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/code/scripts/p0_verify_finewiki_stage.py --stage token_count --root /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1 --reference-root /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/wave1_consolidated_100m_v1 --tokenizer /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/tokenizer_v1/tokenizer.json"
+        }
+      ]
+    },
+    {
+      "name": "quality_sample",
+      "kind": "command",
+      "host": "CPU_NODE",
+      "command": "/srv/small-agent/venvs/deepspec_gemma4/bin/python /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/code/scripts/p0_sample_finewiki_quality.py --root /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1 --output /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/audit/stratified_quality_probe_v1 --per-stratum 50",
+      "inputs": [
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/code/scripts/p0_sample_finewiki_quality.py"
+        },
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/code/scripts/p0_verify_finewiki_stage.py"
+        },
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/code/scripts/p0_data_pipeline.py"
+        },
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/clean_rule_v1/manifest.json"
+        }
+      ],
+      "outputs": [
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/audit/stratified_quality_probe_v1/manifest.json"
+        }
+      ],
+      "checks": [
+        {
+          "host": "CPU_NODE",
+          "command": "/srv/small-agent/venvs/deepspec_gemma4/bin/python /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/code/scripts/p0_verify_finewiki_stage.py --stage quality_sample --root /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1 --reference-root /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/wave1_consolidated_100m_v1 --tokenizer /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/tokenizer_v1/tokenizer.json"
+        }
+      ]
+    },
+    {
+      "name": "empty_language_scan",
+      "kind": "command",
+      "host": "CPU_NODE",
+      "command": "/srv/small-agent/venvs/deepspec_gemma4/bin/python /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/code/scripts/p0_audit_finewiki_extraction.py --root /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1 --output /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/audit/empty_language_annotations_v1.json",
+      "inputs": [
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/code/scripts/p0_audit_finewiki_extraction.py"
+        },
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/code/scripts/p0_verify_finewiki_stage.py"
+        },
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/code/scripts/p0_data_pipeline.py"
+        },
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/code/scripts/p0_sample_finewiki_quality.py"
+        },
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/clean_rule_v1/manifest.json"
+        }
+      ],
+      "outputs": [
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/audit/empty_language_annotations_v1.json"
+        }
+      ],
+      "checks": [
+        {
+          "host": "CPU_NODE",
+          "command": "/srv/small-agent/venvs/deepspec_gemma4/bin/python /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/code/scripts/p0_verify_finewiki_stage.py --stage empty_language_scan --root /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1 --reference-root /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/wave1_consolidated_100m_v1 --tokenizer /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/tokenizer_v1/tokenizer.json"
+        }
+      ]
+    },
+    {
+      "name": "empty_language_tokens",
+      "kind": "command",
+      "host": "CPU_NODE",
+      "command": "/srv/small-agent/venvs/deepspec_gemma4/bin/python /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/code/scripts/p0_count_finewiki_artifact_tokens.py --root /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1 --tokenizer /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/tokenizer_v1/tokenizer.json --output /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/audit/empty_language_token_count_v1.json",
+      "inputs": [
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/code/scripts/p0_count_finewiki_artifact_tokens.py"
+        },
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/code/scripts/p0_verify_finewiki_stage.py"
+        },
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/code/scripts/p0_data_pipeline.py"
+        },
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/code/scripts/p0_audit_finewiki_extraction.py"
+        },
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/clean_rule_v1/manifest.json"
+        },
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/clean_rule_v1/token_count_manifest.json"
+        },
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/audit/empty_language_annotations_v1.json"
+        },
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/tokenizer_v1/tokenizer.json"
+        }
+      ],
+      "outputs": [
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/audit/empty_language_token_count_v1.json"
+        }
+      ],
+      "checks": [
+        {
+          "host": "CPU_NODE",
+          "command": "/srv/small-agent/venvs/deepspec_gemma4/bin/python /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/code/scripts/p0_verify_finewiki_stage.py --stage empty_language_tokens --root /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1 --reference-root /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/wave1_consolidated_100m_v1 --tokenizer /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/tokenizer_v1/tokenizer.json"
+        }
+      ]
+    },
+    {
+      "name": "wave1_overlap",
+      "kind": "command",
+      "host": "CPU_NODE",
+      "command": "/srv/small-agent/venvs/deepspec_gemma4/bin/python /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/code/scripts/p0_overlap_finewiki_wave1.py --candidate-root /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1 --reference-root /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/wave1_consolidated_100m_v1 --output /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/audit/wave1_overlap_v1",
+      "inputs": [
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/code/scripts/p0_overlap_finewiki_wave1.py"
+        },
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/code/scripts/p0_verify_finewiki_stage.py"
+        },
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/code/scripts/p0_data_pipeline.py"
+        },
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/clean_rule_v1/manifest.json"
+        },
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/wave1_consolidated_100m_v1/manifest.json"
+        }
+      ],
+      "outputs": [
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/audit/wave1_overlap_v1/manifest.json"
+        }
+      ],
+      "checks": [
+        {
+          "host": "CPU_NODE",
+          "command": "/srv/small-agent/venvs/deepspec_gemma4/bin/python /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/code/scripts/p0_verify_finewiki_stage.py --stage wave1_overlap --root /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1 --reference-root /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/wave1_consolidated_100m_v1 --tokenizer /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/tokenizer_v1/tokenizer.json"
+        }
+      ]
+    },
+    {
+      "name": "unflagged_index",
+      "kind": "command",
+      "host": "CPU_NODE",
+      "command": "/srv/small-agent/venvs/deepspec_gemma4/bin/python /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/code/scripts/p0_index_finewiki_unflagged.py --root /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1 --tokenizer /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/tokenizer_v1/tokenizer.json --output-dir /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/audit/unflagged_index_v1",
+      "inputs": [
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/code/scripts/p0_index_finewiki_unflagged.py"
+        },
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/code/scripts/p0_verify_finewiki_stage.py"
+        },
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/code/scripts/p0_data_pipeline.py"
+        },
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/code/scripts/p0_audit_finewiki_extraction.py"
+        },
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/clean_rule_v1/manifest.json"
+        },
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/audit/empty_language_token_count_v1.json"
+        },
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/audit/wave1_overlap_v1/manifest.json"
+        },
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/tokenizer_v1/tokenizer.json"
+        }
+      ],
+      "outputs": [
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/audit/unflagged_index_v1/manifest.json"
+        }
+      ],
+      "checks": [
+        {
+          "host": "CPU_NODE",
+          "command": "/srv/small-agent/venvs/deepspec_gemma4/bin/python /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/code/scripts/p0_verify_finewiki_stage.py --stage unflagged_index --root /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1 --reference-root /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/wave1_consolidated_100m_v1 --tokenizer /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/tokenizer_v1/tokenizer.json"
+        }
+      ]
+    },
+    {
+      "name": "residual_scan",
+      "kind": "command",
+      "host": "CPU_NODE",
+      "command": "/srv/small-agent/venvs/deepspec_gemma4/bin/python /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/code/scripts/p0_audit_finewiki_residual.py --root /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1 --output /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/audit/residual_extraction_v1.json",
+      "inputs": [
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/code/scripts/p0_audit_finewiki_residual.py"
+        },
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/code/scripts/p0_verify_finewiki_stage.py"
+        },
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/code/scripts/p0_data_pipeline.py"
+        },
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/code/scripts/p0_audit_finewiki_extraction.py"
+        },
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/code/scripts/p0_sample_finewiki_quality.py"
+        },
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/clean_rule_v1/manifest.json"
+        },
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/audit/empty_language_token_count_v1.json"
+        }
+      ],
+      "outputs": [
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/audit/residual_extraction_v1.json"
+        }
+      ],
+      "checks": [
+        {
+          "host": "CPU_NODE",
+          "command": "/srv/small-agent/venvs/deepspec_gemma4/bin/python /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/code/scripts/p0_verify_finewiki_stage.py --stage residual_scan --root /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1 --reference-root /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/wave1_consolidated_100m_v1 --tokenizer /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/tokenizer_v1/tokenizer.json"
+        }
+      ]
+    },
+    {
+      "name": "residual_overlay",
+      "kind": "command",
+      "host": "CPU_NODE",
+      "command": "/srv/small-agent/venvs/deepspec_gemma4/bin/python /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/code/scripts/p0_index_finewiki_residual_flags.py --root /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1 --output-dir /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/audit/residual_flags_v1",
+      "inputs": [
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/code/scripts/p0_index_finewiki_residual_flags.py"
+        },
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/code/scripts/p0_verify_finewiki_stage.py"
+        },
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/code/scripts/p0_data_pipeline.py"
+        },
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/code/scripts/p0_audit_finewiki_extraction.py"
+        },
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/code/scripts/p0_audit_finewiki_residual.py"
+        },
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/clean_rule_v1/manifest.json"
+        },
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/audit/unflagged_index_v1/manifest.json"
+        },
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/audit/residual_extraction_v1.json"
+        }
+      ],
+      "outputs": [
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/audit/residual_flags_v1/manifest.json"
+        }
+      ],
+      "checks": [
+        {
+          "host": "CPU_NODE",
+          "command": "/srv/small-agent/venvs/deepspec_gemma4/bin/python /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/code/scripts/p0_verify_finewiki_stage.py --stage residual_overlay --root /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1 --reference-root /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/wave1_consolidated_100m_v1 --tokenizer /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/tokenizer_v1/tokenizer.json"
+        }
+      ]
+    },
+    {
+      "name": "ceval_fetch",
+      "kind": "command",
+      "host": "CPU_NODE",
+      "command": "/srv/small-agent/venvs/deepspec_gemma4/bin/python /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/code/scripts/p0_fetch_ceval_validation.py --output-dir /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/audit/heldout_ceval_val_v1 --endpoint https://hf-mirror.com",
+      "inputs": [
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/code/scripts/p0_fetch_ceval_validation.py"
+        },
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/code/scripts/p0_verify_finewiki_stage.py"
+        }
+      ],
+      "outputs": [
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/audit/heldout_ceval_val_v1/manifest.json"
+        }
+      ],
+      "checks": [
+        {
+          "host": "CPU_NODE",
+          "command": "/srv/small-agent/venvs/deepspec_gemma4/bin/python /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/code/scripts/p0_verify_finewiki_stage.py --stage ceval_fetch --root /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1 --reference-root /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/wave1_consolidated_100m_v1 --tokenizer /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/tokenizer_v1/tokenizer.json"
+        }
+      ]
+    },
+    {
+      "name": "ceval_exact",
+      "kind": "command",
+      "host": "CPU_NODE",
+      "command": "/srv/small-agent/venvs/deepspec_gemma4/bin/python /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/code/scripts/p0_screen_finewiki_ceval.py --candidate-root /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1 --reference-root /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/audit/heldout_ceval_val_v1 --output-dir /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/audit/ceval_validation_exact_screen_v1",
+      "inputs": [
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/code/scripts/p0_screen_finewiki_ceval.py"
+        },
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/code/scripts/p0_verify_finewiki_stage.py"
+        },
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/code/scripts/p0_data_pipeline.py"
+        },
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/clean_rule_v1/manifest.json"
+        },
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/audit/unflagged_index_v1/manifest.json"
+        },
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/audit/residual_flags_v1/manifest.json"
+        },
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/audit/heldout_ceval_val_v1/manifest.json"
+        }
+      ],
+      "outputs": [
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/audit/ceval_validation_exact_screen_v1/manifest.json"
+        }
+      ],
+      "checks": [
+        {
+          "host": "CPU_NODE",
+          "command": "/srv/small-agent/venvs/deepspec_gemma4/bin/python /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/code/scripts/p0_verify_finewiki_stage.py --stage ceval_exact --root /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1 --reference-root /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/wave1_consolidated_100m_v1 --tokenizer /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/tokenizer_v1/tokenizer.json"
+        }
+      ]
+    },
+    {
+      "name": "ceval_short",
+      "kind": "command",
+      "host": "CPU_NODE",
+      "command": "/srv/small-agent/venvs/deepspec_gemma4/bin/python /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/code/scripts/p0_screen_finewiki_ceval_short.py --candidate-root /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1 --reference-root /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/audit/heldout_ceval_val_v1 --output-dir /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/audit/ceval_validation_short_screen_v1",
+      "inputs": [
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/code/scripts/p0_screen_finewiki_ceval_short.py"
+        },
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/code/scripts/p0_verify_finewiki_stage.py"
+        },
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/code/scripts/p0_data_pipeline.py"
+        },
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/code/scripts/p0_screen_finewiki_ceval.py"
+        },
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/code/scripts/p0_probe_finewiki_near_overlap.py"
+        },
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/clean_rule_v1/manifest.json"
+        },
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/audit/unflagged_index_v1/manifest.json"
+        },
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/audit/residual_flags_v1/manifest.json"
+        },
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/audit/heldout_ceval_val_v1/manifest.json"
+        }
+      ],
+      "outputs": [
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/audit/ceval_validation_short_screen_v1/manifest.json"
+        }
+      ],
+      "checks": [
+        {
+          "host": "CPU_NODE",
+          "command": "/srv/small-agent/venvs/deepspec_gemma4/bin/python /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/code/scripts/p0_verify_finewiki_stage.py --stage ceval_short --root /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1 --reference-root /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/wave1_consolidated_100m_v1 --tokenizer /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/tokenizer_v1/tokenizer.json"
+        }
+      ]
+    },
+    {
+      "name": "full_near_dedup",
+      "kind": "command",
+      "host": "CPU_NODE",
+      "command": "/srv/small-agent/venvs/deepspec_gemma4/bin/python /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/code/scripts/p0_near_dedup_finewiki_priority.py --candidate-root /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1 --reference-root /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/wave1_consolidated_100m_v1 --output-dir /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/audit/full_near_dedup_v1",
+      "inputs": [
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/code/scripts/p0_near_dedup_finewiki_priority.py"
+        },
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/code/scripts/p0_verify_finewiki_stage.py"
+        },
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/code/scripts/p0_data_pipeline.py"
+        },
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/code/scripts/p0_screen_finewiki_ceval.py"
+        },
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/code/scripts/p0_near_dedup_ultradata_night8.py"
+        },
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/clean_rule_v1/manifest.json"
+        },
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/audit/unflagged_index_v1/manifest.json"
+        },
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/audit/residual_flags_v1/manifest.json"
+        },
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/wave1_consolidated_100m_v1/manifest.json"
+        }
+      ],
+      "outputs": [
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/audit/full_near_dedup_v1/manifest.json"
+        }
+      ],
+      "checks": [
+        {
+          "host": "CPU_NODE",
+          "command": "/srv/small-agent/venvs/deepspec_gemma4/bin/python /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/code/scripts/p0_verify_finewiki_stage.py --stage full_near_dedup --root /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1 --reference-root /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/wave1_consolidated_100m_v1 --tokenizer /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/tokenizer_v1/tokenizer.json"
+        }
+      ]
+    },
+    {
+      "name": "title_triage",
+      "kind": "command",
+      "host": "CPU_NODE",
+      "command": "/srv/small-agent/venvs/deepspec_gemma4/bin/python /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/code/scripts/p0_triage_finewiki_near_hits.py --candidate-root /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1 --output-dir /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/audit/near_hit_title_triage_v1",
+      "inputs": [
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/code/scripts/p0_triage_finewiki_near_hits.py"
+        },
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/code/scripts/p0_verify_finewiki_stage.py"
+        },
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/code/scripts/p0_data_pipeline.py"
+        },
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/clean_rule_v1/manifest.json"
+        },
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/audit/full_near_dedup_v1/manifest.json"
+        }
+      ],
+      "outputs": [
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/audit/near_hit_title_triage_v1/manifest.json"
+        }
+      ],
+      "checks": [
+        {
+          "host": "CPU_NODE",
+          "command": "/srv/small-agent/venvs/deepspec_gemma4/bin/python /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/code/scripts/p0_verify_finewiki_stage.py --stage title_triage --root /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1 --reference-root /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/wave1_consolidated_100m_v1 --tokenizer /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/tokenizer_v1/tokenizer.json"
+        }
+      ]
+    },
+    {
+      "name": "strict_near_policy",
+      "kind": "command",
+      "host": "CPU_NODE",
+      "command": "/srv/small-agent/venvs/deepspec_gemma4/bin/python /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/code/scripts/p0_finalize_finewiki_near_policy.py --candidate-root /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1 --output-dir /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/audit/strict_near_policy_v1",
+      "inputs": [
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/code/scripts/p0_finalize_finewiki_near_policy.py"
+        },
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/code/scripts/p0_verify_finewiki_stage.py"
+        },
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/code/scripts/p0_data_pipeline.py"
+        },
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/code/scripts/p0_triage_finewiki_near_hits.py"
+        },
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/audit/full_near_dedup_v1/manifest.json"
+        },
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/audit/near_hit_title_triage_v1/manifest.json"
+        }
+      ],
+      "outputs": [
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/audit/strict_near_policy_v1/manifest.json"
+        }
+      ],
+      "checks": [
+        {
+          "host": "CPU_NODE",
+          "command": "/srv/small-agent/venvs/deepspec_gemma4/bin/python /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1/code/scripts/p0_verify_finewiki_stage.py --stage strict_near_policy --root /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/finewiki_zh_2025_candidate_v1 --reference-root /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/wave1_consolidated_100m_v1 --tokenizer /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/tokenizer_v1/tokenizer.json"
+        }
+      ]
+    }
+  ]
+}

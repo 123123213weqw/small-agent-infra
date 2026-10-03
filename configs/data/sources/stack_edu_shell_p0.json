@@ -1,0 +1,15 @@
+{
+  "adapter_version": "p0_source_adapter_v1",
+  "source_id": "stack_edu_shell",
+  "dataset": "HuggingFaceTB/stack-edu",
+  "revision": "eeec5caac5cc3758a18f1d3ba4416837a9ba814c",
+  "subset": "Shell",
+  "domain": "code_shell",
+  "language": "shell",
+  "license_status": "pending",
+  "text_field": "content",
+  "content_resolver": {"mode": "software_heritage_s3", "blob_id_field": "blob_id", "encoding_field": "src_encoding", "resolved_text_field": "content"},
+  "locator_fields": ["repo_name", "path", "blob_id"],
+  "family_fields": ["repo_name"],
+  "metadata_fields": ["repo_name", "path", "language", "blob_id", "src_encoding", "length_bytes", "score", "int_score", "detected_licenses", "license_type"]
+}

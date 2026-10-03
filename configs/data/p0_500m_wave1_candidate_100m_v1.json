@@ -1,0 +1,38 @@
+{
+  "version": "p0_500m_wave1_candidate_100m_v1",
+  "purpose": "first 100m reference-token candidate wave toward 500m accepted own-tokenizer training tokens; not a quality-approved corpus",
+  "target_final_train_tokens_own_tokenizer": 500000000,
+  "pipeline_seed": 20260923,
+  "tokenizer": {
+    "model_id": "Qwen/Qwen3-0.6B-Base",
+    "revision": "da87bfb608c14b7cf20ba1ce41287e8de496c0cd",
+    "sequence_length": 2048
+  },
+  "split": {
+    "train": 0.98,
+    "validation": 0.01,
+    "test": 0.01
+  },
+  "candidate_token_targets": {
+    "general_zh": 40000000,
+    "general_en": 30000000,
+    "math_en": 20000000,
+    "code_python": 5000000,
+    "code_shell": 500000,
+    "code_other": 4500000
+  },
+  "dedup": {
+    "shingle_size": 5,
+    "minhash_num_perm": 32,
+    "minhash_bands": 8,
+    "near_jaccard_threshold": 0.82,
+    "selection_batch_rows": 10000
+  },
+  "rules": {
+    "min_chars": 200,
+    "max_chars": 200000,
+    "max_replacement_char_fraction": 0.001,
+    "max_repeated_line_fraction": 0.6,
+    "max_blank_line_run": 3
+  }
+}

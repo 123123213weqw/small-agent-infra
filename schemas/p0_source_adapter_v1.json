@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "p0_source_adapter_v1",
+  "type": "object",
+  "required": [
+    "adapter_version", "source_id", "dataset", "revision", "subset",
+    "domain", "language", "license_status", "text_field",
+    "locator_fields", "family_fields", "metadata_fields"
+  ],
+  "properties": {
+    "adapter_version": {"const": "p0_source_adapter_v1"},
+    "source_id": {"type": "string", "minLength": 1},
+    "dataset": {"type": "string", "minLength": 1},
+    "revision": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+    "subset": {"type": ["string", "null"]},
+    "domain": {"type": "string", "minLength": 1},
+    "language": {"type": "string", "minLength": 1},
+    "license_status": {"enum": ["pending", "approved", "rejected"]},
+    "text_field": {"type": "string", "minLength": 1},
+    "locator_fields": {
+      "type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}
+    },
+    "family_fields": {
+      "type": "array", "items": {"type": "string", "minLength": 1}
+    },
+    "metadata_fields": {
+      "type": "array", "items": {"type": "string", "minLength": 1}
+    },
+    "content_resolver": {
+      "type": "object",
+      "required": ["mode", "blob_id_field", "encoding_field", "resolved_text_field"],
+      "properties": {
+        "mode": {"const": "software_heritage_s3"},
+        "blob_id_field": {"type": "string", "minLength": 1},
+        "encoding_field": {"type": "string", "minLength": 1},
+        "resolved_text_field": {"type": "string", "minLength": 1}
+      },
+      "additionalProperties": false
+    },
+    "row_filters": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["field", "allowed_values"],
+        "properties": {
+          "field": {"type": "string", "minLength": 1},
+          "allowed_values": {"type": "array", "minItems": 1}
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

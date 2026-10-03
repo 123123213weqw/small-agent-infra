@@ -1,0 +1,266 @@
+{
+  "version": 1,
+  "description": "100 existing Wave1 records, offline replay only; no model calls, no paid API, not new training data",
+  "stages": [
+    {
+      "name": "prepare_replay",
+      "kind": "command",
+      "host": "GPU_NODE",
+      "command": "/srv/small-agent/venvs/vllm-qwen38-fp8-v1/bin/python /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pipeline_smoke_100_v1/code/scripts/p0_make_wave1_replay.py prepare --source /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/wave1_conversion_v1 --accepted /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/wave1_accepted_real_dual_judge_v2 --output /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pipeline_smoke_100_v1/screen",
+      "inputs": [
+        {
+          "host": "GPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/wave1_conversion_v1/screen_summary.json"
+        },
+        {
+          "host": "GPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/wave1_accepted_real_dual_judge_v2/manifest.json"
+        }
+      ],
+      "outputs": [
+        {
+          "host": "GPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pipeline_smoke_100_v1/screen/selection_manifest.json"
+        },
+        {
+          "host": "GPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pipeline_smoke_100_v1/screen/screen_summary.json"
+        },
+        {
+          "host": "GPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pipeline_smoke_100_v1/screen/deepseek_full_v1/deepseek_full.input.jsonl"
+        }
+      ],
+      "checks": []
+    },
+    {
+      "name": "copy_replay_input",
+      "kind": "copy",
+      "inputs": [
+        {
+          "host": "GPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pipeline_smoke_100_v1/screen/deepseek_full_v1/deepseek_full.input.jsonl"
+        }
+      ],
+      "outputs": [
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/audit/pipeline_smoke_100_v1/review/deepseek_full.input.jsonl"
+        }
+      ]
+    },
+    {
+      "name": "filter_old_responses",
+      "kind": "command",
+      "host": "CPU_NODE",
+      "command": "/srv/small-agent/venvs/deepspec_gemma4/bin/python /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/audit/pipeline_smoke_100_v1/code/scripts/p0_make_wave1_replay.py filter-results --input /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/audit/pipeline_smoke_100_v1/review/deepseek_full.input.jsonl --source-results /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/audit/wave1_conversion_v1/deepseek_full_v1/deepseek_full.results.jsonl --output /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/audit/pipeline_smoke_100_v1/review/deepseek_full.results.jsonl",
+      "inputs": [
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/audit/pipeline_smoke_100_v1/review/deepseek_full.input.jsonl"
+        },
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/audit/wave1_conversion_v1/deepseek_full_v1/deepseek_full.results.jsonl"
+        }
+      ],
+      "outputs": [
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/audit/pipeline_smoke_100_v1/review/deepseek_full.results.jsonl"
+        },
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/audit/pipeline_smoke_100_v1/review/replay_results_manifest.json"
+        }
+      ],
+      "checks": [
+        {
+          "host": "CPU_NODE",
+          "command": "/srv/small-agent/venvs/deepspec_gemma4/bin/python -c 'import json,hashlib; from pathlib import Path; r=Path('\"'\"'/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/audit/pipeline_smoke_100_v1/review'\"'\"'); m=json.loads((r/\"replay_results_manifest.json\").read_text()); assert m[\"input_documents\"]==100 and m[\"documents_with_attempts\"]==100; assert hashlib.sha256((r/\"deepseek_full.results.jsonl\").read_bytes()).hexdigest()==m[\"results_sha256\"]'"
+        }
+      ]
+    },
+    {
+      "name": "dual_judge_gate",
+      "kind": "command",
+      "host": "CPU_NODE",
+      "command": "/srv/small-agent/venvs/deepspec_gemma4/bin/python /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/audit/pipeline_smoke_100_v1/code/scripts/p0_gate_wave1_two_judges.py --input /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/audit/pipeline_smoke_100_v1/review/deepseek_full.input.jsonl --results /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/audit/pipeline_smoke_100_v1/review/deepseek_full.results.jsonl --output-dir /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/audit/pipeline_smoke_100_v1/review/two_judge_gate",
+      "inputs": [
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/audit/pipeline_smoke_100_v1/review/deepseek_full.input.jsonl"
+        },
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/audit/pipeline_smoke_100_v1/review/deepseek_full.results.jsonl"
+        }
+      ],
+      "outputs": [
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/audit/pipeline_smoke_100_v1/review/two_judge_gate/gate_summary.json"
+        },
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/audit/pipeline_smoke_100_v1/review/two_judge_gate/two_judge_accepted_ids.jsonl"
+        }
+      ],
+      "checks": [
+        {
+          "host": "CPU_NODE",
+          "command": "/srv/small-agent/venvs/deepspec_gemma4/bin/python -c 'import json; x=json.load(open('\"'\"'/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/audit/pipeline_smoke_100_v1/review/two_judge_gate/gate_summary.json'\"'\"')); assert x[\"input_documents\"] == 100 and x[\"accepted_documents\"] == 80'"
+        }
+      ]
+    },
+    {
+      "name": "copy_gate_summary",
+      "kind": "copy",
+      "inputs": [
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/audit/pipeline_smoke_100_v1/review/two_judge_gate/gate_summary.json"
+        }
+      ],
+      "outputs": [
+        {
+          "host": "GPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pipeline_smoke_100_v1/gate/gate_summary.json"
+        }
+      ]
+    },
+    {
+      "name": "copy_two_judge_accepted_ids",
+      "kind": "copy",
+      "inputs": [
+        {
+          "host": "CPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/audit/pipeline_smoke_100_v1/review/two_judge_gate/two_judge_accepted_ids.jsonl"
+        }
+      ],
+      "outputs": [
+        {
+          "host": "GPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pipeline_smoke_100_v1/gate/two_judge_accepted_ids.jsonl"
+        }
+      ]
+    },
+    {
+      "name": "freeze_accepted",
+      "kind": "command",
+      "host": "GPU_NODE",
+      "command": "/srv/small-agent/venvs/vllm-qwen38-fp8-v1/bin/python /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pipeline_smoke_100_v1/code/scripts/p0_freeze_wave1_two_judge.py --pool /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/wave1_consolidated_100m_v1 --screen-dir /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pipeline_smoke_100_v1/screen --gate-dir /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pipeline_smoke_100_v1/gate --prior-index /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/wave1_conversion_v1/previous_approved_690_index.jsonl --output /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pipeline_smoke_100_v1/accepted_real",
+      "inputs": [
+        {
+          "host": "GPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/wave1_consolidated_100m_v1/manifest.json"
+        },
+        {
+          "host": "GPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pipeline_smoke_100_v1/screen/screen_summary.json"
+        },
+        {
+          "host": "GPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pipeline_smoke_100_v1/gate/gate_summary.json"
+        },
+        {
+          "host": "GPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/wave1_conversion_v1/previous_approved_690_index.jsonl"
+        }
+      ],
+      "outputs": [
+        {
+          "host": "GPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pipeline_smoke_100_v1/accepted_real/manifest.json"
+        },
+        {
+          "host": "GPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pipeline_smoke_100_v1/accepted_real/accepted_index.jsonl"
+        }
+      ],
+      "checks": [
+        {
+          "host": "GPU_NODE",
+          "command": "/srv/small-agent/venvs/vllm-qwen38-fp8-v1/bin/python -c 'import json; assert json.load(open('\"'\"'/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pipeline_smoke_100_v1/accepted_real/manifest.json'\"'\"'))[\"counts\"][\"accepted_documents\"] == 80'"
+        }
+      ]
+    },
+    {
+      "name": "make_mixture",
+      "kind": "command",
+      "host": "GPU_NODE",
+      "command": "/srv/small-agent/venvs/vllm-qwen38-fp8-v1/bin/python /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pipeline_smoke_100_v1/code/scripts/p0_make_token_mixture.py --source /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pipeline_smoke_100_v1/accepted_real --output /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pipeline_smoke_100_v1/accepted_real/mixture_train_token_proportional.json",
+      "inputs": [
+        {
+          "host": "GPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pipeline_smoke_100_v1/accepted_real/manifest.json"
+        },
+        {
+          "host": "GPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pipeline_smoke_100_v1/accepted_real/accepted_index.jsonl"
+        }
+      ],
+      "outputs": [
+        {
+          "host": "GPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pipeline_smoke_100_v1/accepted_real/mixture_train_token_proportional.json"
+        }
+      ],
+      "checks": []
+    },
+    {
+      "name": "pack_tokens",
+      "kind": "command",
+      "host": "GPU_NODE",
+      "command": "/srv/small-agent/venvs/vllm-qwen38-fp8-v1/bin/python /srv/small-agent/experiments/small-agent-base-1b-v1-engineering/code/scripts/p0_pack_sharded_v1.py --source /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pipeline_smoke_100_v1/accepted_real --tokenizer /srv/small-agent/experiments/small-agent-base-1b-v1-engineering/data/tokenizer_v1 --output /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pipeline_smoke_100_v1/tokens --mixture-json /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pipeline_smoke_100_v1/accepted_real/mixture_train_token_proportional.json --sequence-length 2048 --target-shard-tokens 250000",
+      "inputs": [
+        {
+          "host": "GPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pipeline_smoke_100_v1/accepted_real/manifest.json"
+        },
+        {
+          "host": "GPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pipeline_smoke_100_v1/accepted_real/mixture_train_token_proportional.json"
+        },
+        {
+          "host": "GPU_NODE",
+          "path": "/srv/small-agent/experiments/small-agent-base-1b-v1-engineering/data/tokenizer_v1/manifest.json"
+        }
+      ],
+      "outputs": [
+        {
+          "host": "GPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pipeline_smoke_100_v1/tokens/manifest.json"
+        }
+      ],
+      "checks": []
+    },
+    {
+      "name": "verify_pack",
+      "kind": "command",
+      "host": "GPU_NODE",
+      "command": "/srv/small-agent/venvs/vllm-qwen38-fp8-v1/bin/python /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pipeline_smoke_100_v1/code/scripts/p0_verify_replay_pack.py --gate /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pipeline_smoke_100_v1/gate --source /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pipeline_smoke_100_v1/accepted_real --pack /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pipeline_smoke_100_v1/tokens --code-root /srv/small-agent/experiments/small-agent-base-1b-v1-engineering/code --output /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pipeline_smoke_100_v1/verification.json",
+      "inputs": [
+        {
+          "host": "GPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pipeline_smoke_100_v1/gate/gate_summary.json"
+        },
+        {
+          "host": "GPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pipeline_smoke_100_v1/accepted_real/manifest.json"
+        },
+        {
+          "host": "GPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pipeline_smoke_100_v1/tokens/manifest.json"
+        }
+      ],
+      "outputs": [
+        {
+          "host": "GPU_NODE",
+          "path": "/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/pipeline_smoke_100_v1/verification.json"
+        }
+      ],
+      "checks": []
+    }
+  ]
+}

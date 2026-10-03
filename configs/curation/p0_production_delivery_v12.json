@@ -1,0 +1,8 @@
+{
+  "version": 12,
+  "root": "/srv/small-agent/datasets/small-agent-p0/curation_v4/full_inventory_v11",
+  "database": "/srv/small-agent/datasets/small-agent-p0/curation_v4/state/supply_20b_v4.sqlite",
+  "output": "/srv/small-agent/datasets/small-agent-p0/curation_v4/full_inventory_v11/delivery_v12",
+  "auto_training": false,
+  "distribution_eligible": false
+}

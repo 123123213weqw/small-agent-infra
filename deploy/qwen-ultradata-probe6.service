@@ -1,0 +1,13 @@
+[Unit]
+Description=Six-L40-GPU audit probe of new Ultra-FineWeb and UltraData source shards
+After=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/bin/bash /srv/small-agent/experiments/qwen38-fp8-serving-v1/code/scripts/p0_run_ultradata_probe6.sh
+WorkingDirectory=/srv/small-agent/experiments/qwen38-fp8-serving-v1
+TimeoutStartSec=0
+UMask=0077
+
+[Install]
+WantedBy=default.target

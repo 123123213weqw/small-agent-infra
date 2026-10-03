@@ -1,0 +1,62 @@
+{
+  "version": "p0_overnight_upstream_v1",
+  "status": "download_only_not_training_approved",
+  "items": [
+    {
+      "source_id": "finemath_4plus_new",
+      "dataset": "HuggingFaceTB/finemath",
+      "revision": "e92b25a616738fe95dc186b64dfb19f9c8525594",
+      "license": "odc-by",
+      "path": "finemath-4plus/train-00001-of-00064.parquet",
+      "bytes": 288474354,
+      "sha256": "4f38efdb251638c1a71be4ed380119bdd9966b1d6f200f6ff637e4768cc3930c"
+    },
+    {
+      "source_id": "finemath_4plus_new",
+      "dataset": "HuggingFaceTB/finemath",
+      "revision": "e92b25a616738fe95dc186b64dfb19f9c8525594",
+      "license": "odc-by",
+      "path": "finemath-4plus/train-00003-of-00064.parquet",
+      "bytes": 284689405,
+      "sha256": "b20b6da635493e3c7e151880db612bdf1bab2e6bc2fe87ed5cd21910f590aada"
+    },
+    {
+      "source_id": "github_code_clean_new",
+      "dataset": "codeparrot/github-code-clean",
+      "revision": "c48d40f9e70f0196f8236901ee35807f7d6c44c0",
+      "license": "apache-2.0",
+      "path": "data/train-00001-of-00880.parquet",
+      "bytes": 361424967,
+      "sha256": "2e1b2e8bc5823fd68a80a036f1a5db894aa89bd491992bda2dfd96c41187025f"
+    },
+    {
+      "source_id": "github_code_clean_new",
+      "dataset": "codeparrot/github-code-clean",
+      "revision": "c48d40f9e70f0196f8236901ee35807f7d6c44c0",
+      "license": "apache-2.0",
+      "path": "data/train-00002-of-00880.parquet",
+      "bytes": 355166159,
+      "sha256": "8cfdccbe955f2fb32598d661b0faa82d185b3d81301f812e34de066433bf5e3e"
+    },
+    {
+      "source_id": "fineweb_edu_new",
+      "dataset": "HuggingFaceFW/fineweb-edu",
+      "revision": "87f09149ef4734204d70ed1d046ddc9ca3f2b8f9",
+      "license": "odc-by",
+      "path": "sample/100BT/000_00003.parquet",
+      "bytes": 2151532316,
+      "sha256": "34e77fe4ecc6075a2521d7716efb993636cd83ccefc2afc3fda3dbf35854c78b"
+    },
+    {
+      "source_id": "fineweb_edu_new",
+      "dataset": "HuggingFaceFW/fineweb-edu",
+      "revision": "87f09149ef4734204d70ed1d046ddc9ca3f2b8f9",
+      "license": "odc-by",
+      "path": "sample/100BT/000_00004.parquet",
+      "bytes": 2151238351,
+      "sha256": "2f3f66cd93f0cf4919725e6dbcd1c240314a2866c9527870231e6148061ca73f"
+    }
+  ],
+  "training_approved": false,
+  "note": "New, pinned raw shards for non-Wikipedia data audit. Existing FineMath-4plus, github-code-clean, and FineWeb-Edu shards on V100 are reused rather than redownloaded. No quality or per-record license approval is implied."
+}

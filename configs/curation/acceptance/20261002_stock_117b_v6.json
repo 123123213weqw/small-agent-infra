@@ -1,0 +1,98 @@
+{
+  "version": 6,
+  "created_unix": 1790937228,
+  "scope": "registered all-stock candidates; mathematical source quality HOLD; no training",
+  "candidate_train_body_tokens": 11700364011,
+  "documents": 7237102,
+  "registered_shards": 72,
+  "ready_release_count": 5,
+  "ready_train_body_tokens": 33463612,
+  "new_math_ready_train_body_tokens": 0,
+  "source_level_internal_terms_authorized": true,
+  "individual_content_rights_certified": false,
+  "distribution_eligible": false,
+  "maximum_concurrency": 2500,
+  "r3_measured_peak_submitted": 127,
+  "shared_campaign_budget_cny": 1000,
+  "shared_ledger_requests": 1018,
+  "shared_conservative_estimated_or_reserved_cny": 18.595605,
+  "math_quality": {
+    "approved_language": "en",
+    "approved_strata": [],
+    "holds": [
+      "controlled_arithmetic_false_keep",
+      "no_calibrated_math_stratum"
+    ],
+    "natural_corpus_factual_error_rate_certified": false,
+    "reference_counts": {
+      "drop_invalid": 1,
+      "drop_keep": 1,
+      "drop_total": 32,
+      "keep_keep": 32,
+      "keep_total": 32
+    },
+    "reference_manifest_sha256": "cb13b2c0c5de76fc27631c00b2bb0c9e3919072de4e388c9d2a76e2fec9c4041",
+    "reference_review_state_sha256": "219327fd298410f18325d67ad5c89199169ef79e0edc69df77c3b2a4636cab42",
+    "reference_sha256": "385bfb9973e6ff1d03fd56075efb62b39e22f0c6f47a45345c203c159c175f0d",
+    "scope": "English mathematical content; independently checked arithmetic controls, not per-document correctness",
+    "source_id": "finemath_4plus_supply_v4",
+    "source_level_only": true,
+    "source_manifest_sha256": "c7c2d49b1963505408d0e098fd5ebfecfc79a290e171738544f44ea9771f5083",
+    "source_review_state_sha256": "236d3ca46888e257ba0b006f59ff2d701f1e2cf083cb2534cbc28aa9c0936480",
+    "source_strata": {
+      "long/en": {
+        "keep": 14,
+        "selected": 64,
+        "valid": 37
+      },
+      "medium/en": {
+        "keep": 23,
+        "selected": 64,
+        "valid": 50
+      },
+      "short/en": {
+        "keep": 18,
+        "selected": 64,
+        "valid": 45
+      }
+    },
+    "status": "hold"
+  },
+  "global_disk_index_state": "ActiveState=active\nSubState=running",
+  "tests": {
+    "stock_and_literal_context": 12,
+    "adaptive_regression": 6,
+    "math_and_code_pipeline_fixture": 6
+  },
+  "training_started": false,
+  "evidence_files": [
+    {
+      "path": "/srv/small-agent/datasets/small-agent-p0/curation_v4/stock_117b_v6/STOCK_REGISTERED.json",
+      "sha256": "043e9f2642e2eaa968f913f6777392c345d0720e66b66f8a817ce06774c40626"
+    },
+    {
+      "path": "/srv/small-agent/datasets/small-agent-p0/curation_v4/stock_117b_v6/STOCK_GATE_STATUS.json",
+      "sha256": "3a8620aae369f1ed0d6af0059d9b288c7691cbfbe48460d0ac25086ef4de39b3"
+    },
+    {
+      "path": "/srv/small-agent/datasets/small-agent-p0/curation_v4/stock_117b_v6/MATH_SCOPE.json",
+      "sha256": "6614d301e59056162b11c6711abe5d44ea0f57fb230d47235bdfe75806eca4be"
+    },
+    {
+      "path": "/srv/small-agent/datasets/small-agent-p0/curation_v4/stock_117b_v6/TERMINAL_HOLD.json",
+      "sha256": "8eebc06c3308ed8bed08813de5bcb17f8996c94b62d1e9f4dcd254e96f70b564"
+    },
+    {
+      "path": "/srv/small-agent/datasets/small-agent-p0/curation_v4/stock_117b_v6/QUEUE_STATUS.json",
+      "sha256": "bc693fd2fd783361c119332d5b3c911cab71c7bd1f5794a8440519111c509e2c"
+    },
+    {
+      "path": "/srv/small-agent/datasets/small-agent-p0/curation_v4/references/finemath_terms_v6/SOURCE_TERMS.json",
+      "sha256": "b48faa43d6ef1f250efb34d095d49be39fd6cb91d13217adaefa94f9cfcd1174"
+    },
+    {
+      "path": "/srv/small-agent/datasets/small-agent-p0/curation_v4/code/configs/curation/p0_stock_117b_v6.json",
+      "sha256": "6473380da20991ba6432d6c5d53349c0e5139f9b2dba3a6da3b33080f05ad607"
+    }
+  ]
+}

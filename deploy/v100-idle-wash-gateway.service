@@ -1,0 +1,14 @@
+[Unit]
+Description=V100 priority llama gateway and guarded idle data wash
+After=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/srv/small-agent/services/v100-idle-wash-v1
+ExecStart=/usr/bin/python3 /srv/small-agent/services/v100-idle-wash-v1/scripts/v100_idle_wash_gateway.py --host 127.0.0.1 --port 8001 --upstream http://127.0.0.1:8000 --input /srv/small-agent/services/v100-idle-wash-v1/queue/pilot90.jsonl --output /srv/small-agent/services/v100-idle-wash-v1/results/pilot90.jsonl --model qwen3.8-27b-uncensored --enable-wash --idle-seconds 300 --poll-seconds 0.5 --max-displace-cache-tokens 8192
+Restart=always
+RestartSec=3
+UMask=0077
+
+[Install]
+WantedBy=default.target

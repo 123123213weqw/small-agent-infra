@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key><string>com.smallagent.p0-fineweb-edu-wave2-transfer</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/usr/bin/python3</string><string>-u</string>
+    <string>/home/user/Library/Application Support/small-agent-p0/fineweb-edu-wave2-v1/p0_transfer_fineweb_edu_wave2.py</string>
+    <string>--manifest</string><string>/home/user/Library/Application Support/small-agent-p0/fineweb-edu-wave2-v1/manifest.json</string>
+    <string>--scratch</string><string>/home/user/Library/Caches/small-agent-p0/fineweb-edu-wave2-v1</string>
+    <string>--remote-root</string><string>/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/fineweb_edu_wave2_v1/stage</string>
+    <string>--host</string><string>GPU_NODE</string>
+    <string>--limit</string><string>1</string>
+  </array>
+  <key>WorkingDirectory</key><string>/home/user</string>
+  <key>RunAtLoad</key><true/>
+  <key>KeepAlive</key><dict><key>SuccessfulExit</key><false/></dict>
+  <key>ThrottleInterval</key><integer>60</integer>
+  <key>StandardOutPath</key><string>/home/user/Library/Logs/p0-fineweb-edu-wave2-transfer.log</string>
+  <key>StandardErrorPath</key><string>/home/user/Library/Logs/p0-fineweb-edu-wave2-transfer.err.log</string>
+</dict>
+</plist>

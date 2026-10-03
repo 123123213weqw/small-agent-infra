@@ -1,0 +1,36 @@
+{
+  "version": 4,
+  "purpose": "continuous_base_pretraining_data_supply",
+  "deployment_status": "implementation_in_progress_not_production_ready",
+  "target_train_body_tokens": 20000000000,
+  "counting_scope": "unique_train_body_tokens_in_verified_corpus_ledger",
+  "targets_by_domain": {
+    "general_en": 7000000000,
+    "general_zh": 5000000000,
+    "technical": 2000000000,
+    "code": 4000000000,
+    "math": 2000000000
+  },
+  "tokenizer_sha256": "9d0b99ab9cf20d337217c96a5b39e9ff87590eb462abcbcc8f1119c3d43911a7",
+  "batch_train_body_tokens": 100000000,
+  "maximum_unreleased_batches": 2,
+  "minimum_disk_free_bytes": 200000000000,
+  "cpu_workers": 8,
+  "cpu_memory_budget_bytes": 34359738368,
+  "api_budget_cny": 0,
+  "gpu_review_enabled": false,
+  "review_policy": "source_calibration_and_stratified_audit_not_per_document_dual_review",
+  "auto_training": false,
+  "auto_publish_hf": false,
+  "unresolved_source_policy": "hold_source_continue_other_sources",
+  "stages": ["ingest", "normalize", "dedup", "quality", "freeze", "pack", "verify"],
+  "required_release_checks": [
+    "source_policy",
+    "quality_scope",
+    "global_exact_near_dedup",
+    "split_eval_isolation",
+    "tokenizer_pack_loader"
+  ],
+  "ready_counter_includes_candidates": false,
+  "existing_inventory_import": "requires_document_index_and_bound_pack_receipts_not_scalar_addition"
+}

@@ -1,0 +1,22 @@
+{
+  "version": "training_quality_campaign_v2",
+  "production_run": "/srv/small-agent/experiments/small-agent-base-1b-wave2-full8-v1/runs/prior-wave2-full-1040m-8l40-v1",
+  "production_code": "/srv/small-agent/experiments/small-agent-base-1b-wave2-full8-v1/code",
+  "checkpoint": "/srv/small-agent/experiments/small-agent-base-1b-wave2-full8-v1/runs/prior-wave2-full-1040m-8l40-v1/checkpoints/step_00015934",
+  "reference_panel": "/srv/small-agent/experiments/small-agent-base-1b-wave2-full8-v1/evaluation/training_quality_v2/data/reference_panel_v2",
+  "seeds": [20261003, 20261004],
+  "normal_updates": 1000,
+  "high_lr_updates": 250,
+  "low_learning_rate": 0.00002,
+  "high_learning_rate": 0.0002,
+  "maximum_overall_loss_gap": 0.01,
+  "maximum_domain_loss_gap": 0.03,
+  "world_size": 8,
+  "global_batch": 32,
+  "context_length": 2048,
+  "baseline": {"micro_batch": 1, "accumulation": 4, "communication": "fp32", "checkpointing": "full", "rmsnorm_fusion": false},
+  "candidate": {"micro_batch": 4, "accumulation": 1, "communication": "bf16", "checkpointing": "half", "rmsnorm_fusion": true},
+  "unchanged": ["original_parameter_and_Adam_dtypes_including_2304_BF16_GDN_norm_parameters", "original_CE", "global_sample_order_and_rank_assignment", "token_budget", "learning_rate_within_pair", "gradient_clip", "model_math", "tokenizer"],
+  "automatic_adoption_allowed": false,
+  "quality_claim": "bounded_paired_checkpoint_continuation_screen_not_universal_noninferiority"
+}

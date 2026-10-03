@@ -1,0 +1,16 @@
+[Unit]
+Description=P0 FineWeb-Edu wave2 verified L40 to V100 ingestion
+
+[Service]
+Type=simple
+WorkingDirectory=/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/fineweb_edu_wave2_v1/code
+ExecStart=/usr/bin/python3 -u /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/fineweb_edu_wave2_v1/code/p0_ingest_fineweb_edu_wave2.py --root /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/fineweb_edu_wave2_v1 --stage-root /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/fineweb_edu_wave2_v1/stage --stage-host L40_Data_Pipeline --wait-timeout 86400
+Restart=on-failure
+RestartSec=60
+Nice=10
+CPUQuota=200%
+MemoryMax=4G
+NoNewPrivileges=yes
+
+[Install]
+WantedBy=default.target

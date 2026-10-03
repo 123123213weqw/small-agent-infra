@@ -1,0 +1,17 @@
+[Unit]
+Description=P0 Wave1 Qwen six-replica length-aware rating (unapproved labels)
+After=network-online.target
+StartLimitIntervalSec=3600
+StartLimitBurst=3
+
+[Service]
+Type=oneshot
+ExecCondition=/usr/bin/test ! -e /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/qwen_official_fp8_wave1_v1/FINISHED6.json
+ExecStart=/bin/bash /srv/small-agent/experiments/qwen38-fp8-serving-v1/code/scripts/p0_run_qwen_wave1_6.sh
+Restart=on-failure
+RestartSec=60
+TimeoutStartSec=infinity
+KillMode=control-group
+
+[Install]
+WantedBy=default.target

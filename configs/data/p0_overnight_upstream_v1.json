@@ -1,0 +1,188 @@
+{
+  "version": "p0_overnight_upstream_v1",
+  "status": "download_only_not_training_approved",
+  "items": [
+    {
+      "source_id": "fineweb2_hq_zh",
+      "dataset": "epfml/FineWeb2-HQ",
+      "revision": "c0c06e94fd3a44ae9e802b2b0fc533817601eb5e",
+      "license": "odc-by",
+      "path": "cmn_Hani/000_00061.parquet",
+      "bytes": 1155017004,
+      "sha256": "9de33b2d171f48dede3a13646c55c55c0b45211e57afe23d61c67893870ff8be"
+    },
+    {
+      "source_id": "finemath_4plus",
+      "dataset": "HuggingFaceTB/finemath",
+      "revision": "e92b25a616738fe95dc186b64dfb19f9c8525594",
+      "license": "odc-by",
+      "path": "finemath-4plus/train-00004-of-00064.parquet",
+      "bytes": 284684820,
+      "sha256": "9644be6589159f9ab85a147f71a48b4ea40ed712cb7c7b5b42bf91b1bb844973"
+    },
+    {
+      "source_id": "github_code_clean_more",
+      "dataset": "codeparrot/github-code-clean",
+      "revision": "c48d40f9e70f0196f8236901ee35807f7d6c44c0",
+      "license": "apache-2.0",
+      "path": "data/train-00110-of-00880.parquet",
+      "bytes": 356887952,
+      "sha256": "9ed9db2e8c760a3c2e17bb697e9eadccff0968fd420ac5c01923f014e23b50f9"
+    },
+    {
+      "source_id": "fineweb2_hq_zh",
+      "dataset": "epfml/FineWeb2-HQ",
+      "revision": "c0c06e94fd3a44ae9e802b2b0fc533817601eb5e",
+      "license": "odc-by",
+      "path": "cmn_Hani/000_00183.parquet",
+      "bytes": 1066761739,
+      "sha256": "db3150d697c30d1594c828cd3bedeb42142b14c209823a9eafa4d09329a200e3"
+    },
+    {
+      "source_id": "finemath_4plus",
+      "dataset": "HuggingFaceTB/finemath",
+      "revision": "e92b25a616738fe95dc186b64dfb19f9c8525594",
+      "license": "odc-by",
+      "path": "finemath-4plus/train-00012-of-00064.parquet",
+      "bytes": 286861763,
+      "sha256": "8357ab429ac19c08290ae78ee8280d75140a3d82c4f18b1e747607b70eeece93"
+    },
+    {
+      "source_id": "github_code_clean_more",
+      "dataset": "codeparrot/github-code-clean",
+      "revision": "c48d40f9e70f0196f8236901ee35807f7d6c44c0",
+      "license": "apache-2.0",
+      "path": "data/train-00330-of-00880.parquet",
+      "bytes": 353523143,
+      "sha256": "e03247d28557e0c15170f2a92174d559ef5f01285cfd87e8cde038601c8444b6"
+    },
+    {
+      "source_id": "fineweb2_hq_zh",
+      "dataset": "epfml/FineWeb2-HQ",
+      "revision": "c0c06e94fd3a44ae9e802b2b0fc533817601eb5e",
+      "license": "odc-by",
+      "path": "cmn_Hani/000_00305.parquet",
+      "bytes": 657568733,
+      "sha256": "1ff30fcf385037ae9452b1bf16dc0b05d435447cf9ec8f31003c3b56b14b1ee8"
+    },
+    {
+      "source_id": "finemath_4plus",
+      "dataset": "HuggingFaceTB/finemath",
+      "revision": "e92b25a616738fe95dc186b64dfb19f9c8525594",
+      "license": "odc-by",
+      "path": "finemath-4plus/train-00020-of-00064.parquet",
+      "bytes": 288418140,
+      "sha256": "938e6ffcf290d7925df11239d67fc953791c361f1d3db37527fcb5468a371a95"
+    },
+    {
+      "source_id": "github_code_clean_more",
+      "dataset": "codeparrot/github-code-clean",
+      "revision": "c48d40f9e70f0196f8236901ee35807f7d6c44c0",
+      "license": "apache-2.0",
+      "path": "data/train-00550-of-00880.parquet",
+      "bytes": 353186835,
+      "sha256": "c327ca8a815c58a305a353cb46902268d322cfd4021289886833a4cf6e8cec12"
+    },
+    {
+      "source_id": "fineweb2_hq_zh",
+      "dataset": "epfml/FineWeb2-HQ",
+      "revision": "c0c06e94fd3a44ae9e802b2b0fc533817601eb5e",
+      "license": "odc-by",
+      "path": "cmn_Hani/000_00427.parquet",
+      "bytes": 835985840,
+      "sha256": "793acb6ddad2d9769e76d02f0cc0cb4572665a2e1e4e54704e624813917b9ba4"
+    },
+    {
+      "source_id": "finemath_4plus",
+      "dataset": "HuggingFaceTB/finemath",
+      "revision": "e92b25a616738fe95dc186b64dfb19f9c8525594",
+      "license": "odc-by",
+      "path": "finemath-4plus/train-00028-of-00064.parquet",
+      "bytes": 285140740,
+      "sha256": "e2fcc0241110c215bb69291d5acc3a36cb963a4421547065341372989196d87e"
+    },
+    {
+      "source_id": "github_code_clean_more",
+      "dataset": "codeparrot/github-code-clean",
+      "revision": "c48d40f9e70f0196f8236901ee35807f7d6c44c0",
+      "license": "apache-2.0",
+      "path": "data/train-00770-of-00880.parquet",
+      "bytes": 353053552,
+      "sha256": "fbda19b7dde748298cb59d75c9f7caa5a4beb190d8c32b9dbfc46a94b6c93681"
+    },
+    {
+      "source_id": "fineweb2_hq_zh",
+      "dataset": "epfml/FineWeb2-HQ",
+      "revision": "c0c06e94fd3a44ae9e802b2b0fc533817601eb5e",
+      "license": "odc-by",
+      "path": "cmn_Hani/000_00549.parquet",
+      "bytes": 1064957243,
+      "sha256": "d6fadf54f715771b5872016941d7971b93143fcbaf1998ed95ff84b932da6998"
+    },
+    {
+      "source_id": "finemath_4plus",
+      "dataset": "HuggingFaceTB/finemath",
+      "revision": "e92b25a616738fe95dc186b64dfb19f9c8525594",
+      "license": "odc-by",
+      "path": "finemath-4plus/train-00036-of-00064.parquet",
+      "bytes": 288088785,
+      "sha256": "210ed04eef3f67f69e8b33af70169ffa675ead7040fda5ff752dcfd53cb3f3c0"
+    },
+    {
+      "source_id": "fineweb2_hq_zh",
+      "dataset": "epfml/FineWeb2-HQ",
+      "revision": "c0c06e94fd3a44ae9e802b2b0fc533817601eb5e",
+      "license": "odc-by",
+      "path": "cmn_Hani/000_00671.parquet",
+      "bytes": 1041972889,
+      "sha256": "5c45478e4204e6343cc6299a05f2b7d3cc3579f4bb5b8ef21a2a3d6412c79e4e"
+    },
+    {
+      "source_id": "finemath_4plus",
+      "dataset": "HuggingFaceTB/finemath",
+      "revision": "e92b25a616738fe95dc186b64dfb19f9c8525594",
+      "license": "odc-by",
+      "path": "finemath-4plus/train-00044-of-00064.parquet",
+      "bytes": 287724326,
+      "sha256": "aeb894d1d5c9fe7b7f92bc3a90d0bade32987846ec56ffccedf1588f8634f0b5"
+    },
+    {
+      "source_id": "fineweb2_hq_zh",
+      "dataset": "epfml/FineWeb2-HQ",
+      "revision": "c0c06e94fd3a44ae9e802b2b0fc533817601eb5e",
+      "license": "odc-by",
+      "path": "cmn_Hani/000_00793.parquet",
+      "bytes": 548994669,
+      "sha256": "a04f4df124edd3b980a5fef9d2734ecfa718a01d25264c3458b842719cd91a19"
+    },
+    {
+      "source_id": "finemath_4plus",
+      "dataset": "HuggingFaceTB/finemath",
+      "revision": "e92b25a616738fe95dc186b64dfb19f9c8525594",
+      "license": "odc-by",
+      "path": "finemath-4plus/train-00052-of-00064.parquet",
+      "bytes": 286603913,
+      "sha256": "f43826fecf00f41cdf78f3c4d1b17bd80b8c816f5b53414ee2bf0fd51c55a0f0"
+    },
+    {
+      "source_id": "fineweb2_hq_zh",
+      "dataset": "epfml/FineWeb2-HQ",
+      "revision": "c0c06e94fd3a44ae9e802b2b0fc533817601eb5e",
+      "license": "odc-by",
+      "path": "cmn_Hani/000_00915.parquet",
+      "bytes": 1030850532,
+      "sha256": "a2803d26ee1724819a3b6f96c526b63960e756c715370073858fbe0b0c9ca2fa"
+    },
+    {
+      "source_id": "finemath_4plus",
+      "dataset": "HuggingFaceTB/finemath",
+      "revision": "e92b25a616738fe95dc186b64dfb19f9c8525594",
+      "license": "odc-by",
+      "path": "finemath-4plus/train-00060-of-00064.parquet",
+      "bytes": 284239808,
+      "sha256": "d8ee743cf9f6eaa336b99c50b556c6aea1fa34a8209bbd3220716444485aa27f"
+    }
+  ],
+  "training_approved": false,
+  "note": "Pinned raw shards for isolated audit; no quality or per-record license approval yet. FineWeb2-HQ and FineMath-4+ overlap their parent datasets."
+}

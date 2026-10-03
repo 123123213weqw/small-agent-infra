@@ -1,0 +1,21 @@
+{
+  "version": "training_generation16_v1", "max_new_tokens": 96,
+  "prompts": [
+    {"id":"zh_definition","domain":"zh","text":"机器学习是一种"},
+    {"id":"zh_explanation","domain":"zh","text":"水在标准大气压下的沸点是100摄氏度。气压降低时，"},
+    {"id":"zh_history","domain":"zh","text":"中国古代的四大发明包括"},
+    {"id":"zh_steps","domain":"zh","text":"准备一杯茶的步骤：\n1. 烧水。\n2."},
+    {"id":"en_definition","domain":"en","text":"Machine learning is a field of computer science that"},
+    {"id":"en_science","domain":"en","text":"Water freezes at zero degrees Celsius. When water turns into ice,"},
+    {"id":"en_technology","domain":"en","text":"An HTTP request consists of a method, a URL, headers, and"},
+    {"id":"en_steps","domain":"en","text":"To create a Python virtual environment:\n1. Open a terminal.\n2."},
+    {"id":"math_add","domain":"math","text":"2 + 3 ="},
+    {"id":"math_algebra","domain":"math","text":"If x + 3 = 7, then x ="},
+    {"id":"math_derivative","domain":"math","text":"The derivative of f(x) = x^2 is"},
+    {"id":"math_zh","domain":"math","text":"一个三角形的底为4，高为3。面积等于"},
+    {"id":"code_add","domain":"code","text":"def add(a, b):\n    \"\"\"Return the sum of a and b.\"\"\"\n    "},
+    {"id":"code_even","domain":"code","text":"def is_even(n):\n    \"\"\"Return True if n is even.\"\"\"\n    "},
+    {"id":"code_shell","domain":"code","text":"#!/bin/bash\n# Print each .txt file in the current directory\nfor file in"},
+    {"id":"code_js","domain":"code","text":"// Return the larger of two numbers\nfunction max(a, b) {\n  "}
+  ]
+}

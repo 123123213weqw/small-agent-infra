@@ -1,0 +1,52 @@
+{
+  "version": 5,
+  "kind": "measured_internal_python_release_acceptance",
+  "batch_id": "1a8f45340bcfe4e54c7832d3da9bd0264f62cb1dd5225f6818e33f0bd21c6188",
+  "ready_token_body_counts": {
+    "test": 4208,
+    "train": 688123,
+    "validation": 4912
+  },
+  "accepted_documents": 734,
+  "source_audit_documents": 384,
+  "cached_source_audit_requests": 96,
+  "new_source_audit_requests": 288,
+  "largest_submitted_request_window": 112,
+  "not_an_exact_inflight_counter": true,
+  "configured_concurrency_ceiling": 2500,
+  "account_budget_cny": 1000,
+  "cumulative_unique_api_requests": 443,
+  "cumulative_estimated_or_reserved_cny": 5.678608,
+  "unknown_inflight": 0,
+  "independent_reference_scope": "external_test_verified_python_and_controlled_format_negatives",
+  "independent_reference_counts": {
+    "drop_model_reject_or_uncertain": 16,
+    "drop_total": 16,
+    "keep_model_keep": 16,
+    "keep_total": 16
+  },
+  "approved_strata": [
+    "medium/python",
+    "short/python"
+  ],
+  "reference_inventory_documents": 1034939,
+  "global_near_exact_pairs": 52,
+  "registered_benchmark_groups": [
+    "arc_easy_test",
+    "arc_easy_validation",
+    "ceval_validation",
+    "gsm8k_test",
+    "hellaswag_validation",
+    "humaneval_test",
+    "mbpp_test",
+    "mbpp_validation"
+  ],
+  "source_level_not_per_document_factual_certification": true,
+  "distribution_eligible": false,
+  "training_started": false,
+  "server_ready_receipt": "/srv/small-agent/datasets/small-agent-p0/curation_v4/releases/code_10m_python_scoped_20261002_v5/READY_INTERNAL.json",
+  "server_training_catalog": "/srv/small-agent/datasets/small-agent-p0/curation_v4/ready_catalog_v5.json",
+  "release_queue_timer": "curation_release_queue_v5.timer",
+  "postrelease_inventory_index_documents": 1035673,
+  "related_unique_engineering_tests_passed": 61
+}

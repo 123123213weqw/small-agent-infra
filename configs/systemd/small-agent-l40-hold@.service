@@ -1,0 +1,16 @@
+[Unit]
+Description=Small Agent L40 VRAM holder on physical GPU %i
+After=default.target
+
+[Service]
+Type=simple
+Environment=CUDA_VISIBLE_DEVICES=%i
+Environment=PYTHONNOUSERSITE=1
+Environment=PYTHONPATH=/srv/small-agent/experiments/small-agent-base-1b-v1-engineering/deps
+ExecStart=/opt/small-agent/venvs/small-agent-l40/bin/python -u /srv/small-agent/experiments/small-agent-base-1b-v1-engineering/code/l40_gpu_hold.py --physical-gpu %i --gib 40
+Restart=always
+RestartSec=30
+TimeoutStopSec=20
+
+[Install]
+WantedBy=default.target

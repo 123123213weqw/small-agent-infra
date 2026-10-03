@@ -1,0 +1,54 @@
+{
+  "accounted_unique_train_body_tokens": 1072895107,
+  "code_sha256": {
+    "configs/curation/p0_full_stock_supply_v10.json": "fd7a41da4b2cf5b8730b137038415b1a2979aece32d5b3648b733d1b980da443",
+    "deploy/systemd/curation_full_stock_queue_v9.service": "d76a5e7ee69d8d70fcffbfcd58d9f0f1a6e932bc5a579640644b4a974f03f5cd",
+    "scripts/p0_full_stock_queue_v10.py": "c24ea93f578358420ec0b3bbcd34ef94aaa044c7b7b46057534537f4fb1302bd",
+    "scripts/p0_full_stock_status_v10.py": "9ecd8f1e3000c2617e4ea1e24c145b1adcdddee738f3691cd86736663ccb1bef",
+    "scripts/p0_legacy_goal_credit_v10.py": "28d609c006cb19f5174e9bb047e60131130225e637b69d511e40509b8a619002",
+    "scripts/p0_release_math_batch_v10.py": "53e12d52aee1c20b2b70e632ff09e32d6434962f258f71e08dc053d997983c90",
+    "src/small_agent/curation/goal_credit_v10.py": "c6371d2601fbfbc0fdef047d5a80cf2c713c04ae0a1b320d4945f9e8de1dd051",
+    "tests/test_goal_credit_v10.py": "e148f09a0c4c7028aa45cfceb92977ec1abc59d4e256851a83f8aa4d9703799d",
+    "tests/test_math_release_v10.py": "6d38ee0465508ad6a672102cd3be7ec10563d2488b824256080ba4506560814b"
+  },
+  "goal_credit_receipt_sha256": "801f09b0dd673849d1a409d5dd23cb8212345aa7bf93f0a9c2b0f08954c056b1",
+  "legacy_quality_recertified": false,
+  "legacy_train_body_tokens": 1039431495,
+  "live_queue_stage": "WAITING_ALL_STOCK_RULE_SCAN",
+  "new_READY_train_body_tokens": 33463612,
+  "no_new_campaign": true,
+  "no_new_legacy_import": true,
+  "no_new_training": true,
+  "observed_at_utc": "2026-10-02T12:37:40.566867+00:00",
+  "one_existing_queue_timer_updated": true,
+  "physical_files_rehashed_this_run": false,
+  "physical_verification_scope": "inherited_hash_bound_L40_report",
+  "recipe_sha256": "ae038bebab6cb9c35b019e04b982118b2d86a98ff67c98d5989e8bf19f8f7b70",
+  "remaining_goal_by_domain": {
+    "code": 3963092853,
+    "general_en": 6175311730,
+    "general_zh": 4789298026,
+    "math": 1999402284,
+    "technical": 2000000000
+  },
+  "remote_python_tests": {
+    "test_goal_credit_v10": 9,
+    "test_math_release_v10": {
+      "executed": 7,
+      "includes_imported_v6_regression": 4
+    }
+  },
+  "scanner_filter_math_helper_frozen_hashes_unchanged": true,
+  "server": "CPU_NODE",
+  "stage": "legacy_goal_credit_and_live_queue_quota_corrected",
+  "target_weights": {
+    "code": 0.2,
+    "general_en": 0.35,
+    "general_zh": 0.25,
+    "math": 0.1,
+    "technical": 0.1
+  },
+  "tokenizer_sha256": "9d0b99ab9cf20d337217c96a5b39e9ff87590eb462abcbcc8f1119c3d43911a7",
+  "training_bundle_inherited_plus_READY_not_assembled": true,
+  "version": 10
+}

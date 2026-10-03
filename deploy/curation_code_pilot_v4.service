@@ -1,0 +1,22 @@
+[Unit]
+Description=Small-agent real code production pilot (release held)
+StartLimitIntervalSec=600
+StartLimitBurst=3
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+WorkingDirectory=/srv/small-agent/datasets/small-agent-p0/curation_v4/code
+ExecStart=/bin/bash /srv/small-agent/artifacts/small-agent/curation_v4/provider_config_v1/code_production_pilot_20261002_v1.sh
+Nice=15
+CPUQuota=200%
+MemoryMax=6G
+Environment=CUDA_VISIBLE_DEVICES=
+Environment=OMP_NUM_THREADS=1
+Environment=OPENBLAS_NUM_THREADS=1
+Environment=TOKENIZERS_PARALLELISM=false
+StandardOutput=append:/srv/small-agent/artifacts/small-agent/curation_v4/logs/code_production_pilot_20261002_v1.log
+StandardError=append:/srv/small-agent/artifacts/small-agent/curation_v4/logs/code_production_pilot_20261002_v1.log
+
+[Install]
+WantedBy=default.target

@@ -1,0 +1,18 @@
+[Unit]
+Description=FineWeb-Edu Wave2 resumable V100 to L40 eight-GPU Qwen quality review
+After=network-online.target
+Wants=network-online.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/bash /srv/small-agent/datasets/small-agent-p0/p0_500m_v1/fineweb_edu_wave2_v1/code/p0_wave2_qwen8_pipeline.sh
+Restart=on-failure
+RestartSec=120
+TimeoutStartSec=infinity
+Nice=10
+StandardOutput=append:/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/fineweb_edu_wave2_v1/audit/qwen8_review_v1/pipeline.log
+StandardError=append:/srv/small-agent/datasets/small-agent-p0/p0_500m_v1/fineweb_edu_wave2_v1/audit/qwen8_review_v1/pipeline.log
+
+[Install]
+WantedBy=default.target

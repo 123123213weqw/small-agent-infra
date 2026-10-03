@@ -1,0 +1,56 @@
+{
+  "version": "p0_1m_smoke_v1",
+  "pipeline_seed": 20260923,
+  "tokenizer": {
+    "model_id": "Qwen/Qwen3-0.6B-Base",
+    "revision": "da87bfb608c14b7cf20ba1ce41287e8de496c0cd",
+    "sequence_length": 2048
+  },
+  "split": {
+    "train": 0.98,
+    "validation": 0.01,
+    "test": 0.01
+  },
+  "train_token_targets": {
+    "general_zh": 240000,
+    "general_en": 200000,
+    "technical": 160000,
+    "code_python": 140000,
+    "code_shell": 40000,
+    "code_other": 20000,
+    "math_zh": 60000,
+    "math_en": 40000,
+    "synthetic": 100000
+  },
+  "candidate_token_multiplier": 2.5,
+  "candidate_token_targets": {
+    "general_zh": 800000,
+    "general_en": 700000,
+    "code_python": 350000,
+    "code_shell": 100000,
+    "code_other": 50000,
+    "math_en": 250000
+  },
+  "dedup": {
+    "shingle_size": 5,
+    "minhash_num_perm": 32,
+    "minhash_bands": 8,
+    "near_jaccard_threshold": 0.82,
+    "selection_batch_rows": 10000
+  },
+  "teacher": {
+    "primary": "deepseek-flash",
+    "primary_temperature": 0,
+    "review_sample_fraction": 0.1,
+    "reviewer": "Qwen3.8-27B",
+    "prompt_version": "p0_quality_v1",
+    "schema_version": "p0_teacher_quality_v1"
+  },
+  "rules": {
+    "min_chars": 200,
+    "max_chars": 200000,
+    "max_replacement_char_fraction": 0.001,
+    "max_repeated_line_fraction": 0.6,
+    "max_blank_line_run": 3
+  }
+}
